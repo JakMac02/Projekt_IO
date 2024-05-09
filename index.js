@@ -10,17 +10,17 @@ var schoesIcon = L.icon({
 });
 
 var shirtIcon = L.icon({
-    iconUrl: 'shirtpng.png',
+    iconUrl: 'shirt.png',
 	iconSize:     [60, 60],
 });
 
 var wardrobeIcon = L.icon({
-    iconUrl: 'cupboardpng.png',
+    iconUrl: 'cupboard.png',
 	iconSize:     [45, 60],
 });
 
 var cupboardIcon = L.icon({
-    iconUrl: 'wardrobepng.png',
+    iconUrl: 'wardrobe.png',
 	iconSize:     [36, 60],
 });
 
@@ -28,13 +28,25 @@ var cupboardIcon = L.icon({
 //Najlepiej pobrac z bazy okreslone oferty i wyświetlac iteracyjnie. 
 //Imo tak jak teraz może być jedynie na zasadzie pretotypu
 var schoesOffer = L.marker([52.225,21.005], {icon: schoesIcon}).addTo(map);
-schoesOffer.bindPopup("Ogłoszenie <br> ")
+schoesOffer.bindPopup('<center> Buty <br><br>'
++ 'Jan Kowalski<br>'
++ 'Chcę oddać stare buty. Są w niezłym stanie<br>'
++ '<a href="#"> <button class="button">Odbierz</button> </a>')
 
 var shirtOffer = L.marker([52.2246,21.008], {icon: shirtIcon}).addTo(map);
-shirtOffer.bindPopup("Ogłoszenie <br> ")
+shirtOffer.bindPopup('<center> Koszulka <br><br>'
++ 'Adam Nowak<br>'
++ 'Chcę oddać prawie nową koszulę. Jest w super stanie<br>'
++ '<a href="#"> <button class="button">Odbierz</button> </a>')
 
 var wardrobeOffer = L.marker([52.22057,21.01026], {icon: wardrobeIcon}).addTo(map);
-wardrobeOffer.bindPopup("Ogłoszenie <br> ")
+wardrobeOffer.bindPopup('<center> Szafa <br><br>'
++ 'Janusz Nowakowski<br>'
++ 'Chcę oddać starą szafę. Jest w niezłym stanie<br>'
++ '<a href="#"> <button class="button">Odbierz</button> </a>')
 
 var cupboardOffer = L.marker([52.222573,21.00963], {icon: cupboardIcon}).addTo(map);
-cupboardOffer.bindPopup("Ogłoszenie <br> ")
+cupboardOffer.bindPopup('<center> Szafka <br><br>'
++ 'John Doe<br>'
++ 'I have old cupboard. <br>'
++ '<a href="#"> <button class="button">Odbierz</button> </a>')

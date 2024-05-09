@@ -5,3 +5,21 @@ html, body, #map
 	padding: 0;
 	margin: 0;
 }
+
+.button {
+  background-color: #6f8d5e; /* Green */
+  border: none;
+  color: white;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #9eb691;
+  color: white;
+}
