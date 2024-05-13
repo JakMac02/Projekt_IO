@@ -1,0 +1,34 @@
+{
+  "ogloszenia":[
+    {
+   "category":"clothes",
+   "description":"lorem ipsum",
+   "photos":"IWNIOIWND898YTV97QEH380V23H8",
+   "title":"szybkie buty marki zygzak mcqueen",
+   "term":"jak najszybciej",
+   "author":"Robert Kubica",
+   "geometry":{
+      "coordinates":[
+         21.005,
+         52.225
+      ]
+   },
+   "type":"Point"
+},
+    {
+   "category":"furniture",
+   "description":"metr osiemdziesiąt, 3 szuflady",
+   "photos":"OWJPFEJF28902HF789H28IHF0293",
+   "title":"wysoka szuflada",
+   "term":"jak najszybciej",
+   "author":"Adam Małsysz",
+   "geometry":{
+      "coordinates":[
+         21.000,
+         52.230
+      ]
+   },
+   "type":"Point"
+}
+  ]
+}

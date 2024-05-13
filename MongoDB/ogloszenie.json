@@ -1,0 +1,15 @@
+{
+   "category":"clothes",
+   "description":"lorem ipsum",
+   "photos":"IWNIOIWND898YTV97QEH380V23H8",
+   "title":"szybkie buty marki zygzak mcqueen",
+   "term":"jak najszybciej",
+   "author":"Robert Kubica",
+   "geometry":{
+      "coordinates":[
+         21.005,
+         52.225
+      ]
+   },
+   "type":"Point"
+}
