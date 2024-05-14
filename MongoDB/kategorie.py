@@ -1,0 +1,13 @@
+kategorie = ["children",
+             "clothes",
+             "cosmetics",
+             "electronics",
+             "furniture",
+             "gardening",
+             "hardware",
+             "home furnishings",
+             "media",
+             "ornaments",
+             "pets",
+             "sport",
+             "miscellaneous"]
