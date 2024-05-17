@@ -26,44 +26,155 @@ var cupboardIcon = L.icon({
 
 let buty = "Buty"
 
-//Najlepiej pobrac z bazy okreslone oferty i wyświetlac iteracyjnie. 
-//Imo tak jak teraz może być jedynie na zasadzie pretotypu
-var schoesOfferData = ["Buty", 'Jan Kowalski', 'Chcę oddać stare buty. Są w niezłym stanie. Korzystałem z nich przez 4 sezony.'];
-var schoesOffer = L.marker([52.225,21.005], {icon: schoesIcon}).addTo(map);
-schoesOffer.bindPopup('<center> Buty <br><br>'
-	+ 'Jan Kowalski<br>'
-	+ 'Chcę oddać stare buty. Są w niezłym stanie<br>'
-	+ '<a onclick="slideBar(schoesOfferData[0], schoesOfferData[1], schoesOfferData[2]) ">'
-	+ "<button class=\"button\">Odbierz</button> </a>")
+var offers = [
+	{
+      "type": "Feature",
+      "properties": {
+        "category": "clothes",
+        "description": "Chcę oddać stare buty. Są w niezłym stanie",
+        "photos": "IWNIOIWND898YTV97QEH380V23H8",
+        "title": "Buty",
+        "term": "Jak najszybciej",
+		"author": "Jan Kowalski"
+      },
+      "geometry": {
+        "coordinates": [
+          21.005, 52.225
+        ],
+        "type": "Point"
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "category": "clothes",
+        "description": "Chcę oddać prawie nową koszulę. Jest w super stanie",
+        "photos": "IWNIOIWND898YTV97QEH380V23H8",
+        "title": "Koszulka",
+        "term": "Jak najszybciej",
+		"author": "Adam Nowak"
+      },
+      "geometry": {
+        "coordinates": [
+          21.008,
+		  52.2246
+        ],
+        "type": "Point"
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "category": "furniture",
+        "description": "Chcę oddać starą szafę. Jest w niezłym stanie. Jest w akceptowalnym stanie. Jej wysokość to 3 metry, jest duża :))",
+        "photos": "IWNIOIWND898YTV97QEH380V23H8",
+        "title": "Szafa",
+        "term": "Jak najszybciej",
+		"author": "Janusz Nowakowski"
+      },
+      "geometry": {
+        "coordinates": [
+			21.01026,
+			52.22057
+			
+        ],
+        "type": "Point"
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+        "category": "furniture",
+        "description": "Hi everyone! I really want to get rid of that cupboard. Recently, I have bought the new one. So, please, take it to your house:)",
+        "photos": "IWNIOIWND898YTV97QEH380V23H8",
+        "title": "Old cupboard",
+        "term": "Jak najszybciej",
+		"author": "John Doe"
+      },
+      "geometry": {
+        "coordinates": [
+			21.00963,
+			52.222573
+			
+        ],
+        "type": "Point"
+      }
+    },
+	{
+      "type": "Feature",
+      "properties": {
+       "category":"furniture",
+	   "description":"Metr osiemdziesiąt, 3 szuflady",
+	   "photos":"OWJPFEJF28902HF789H28IHF0293",
+	   "title":"wysoka szuflada",
+	   "term":"jak najszybciej",
+	   "author":"Adam Małsysz",
+      },
+      "geometry": {
+        "coordinates": [
+			21.000,  
+			52.230			
+        ],
+        "type": "Point"
+      }
+    },
+	{
+	"type": "Feature",
+      "properties": {
+       "category":"clothes",
+	   "description":"lorem ipsum",
+	   "photos":"IWNIOIWND898YTV97QEH380V23H8",
+	   "title":"szybkie buty marki zygzak mcqueen",
+	   "term":"jak najszybciej",
+	   "author":"Robert Kubica",
+      },
+      "geometry": {
+        "coordinates": [
+			21.005, 
+			52.225
+        ],
+        "type": "Point"
+      }
+    },
+]
 
-var shirtOfferData = ["Koszulka", 'Adam Nowak', 'Chcę oddać prawie nową koszulę. Jest w super stanie. W zamian rządam jedyne tabliczki czekolady :))'];
-var shirtOffer = L.marker([52.2246,21.008], {icon: shirtIcon}).addTo(map);
-shirtOffer.bindPopup('<center> Koszulka <br><br>'
-	+ 'Adam Nowak<br>'
-	+ 'Chcę oddać prawie nową koszulę. Jest w super stanie<br>'
-	+ '<a onclick="slideBar(shirtOfferData[0], shirtOfferData[1], shirtOfferData[2]) ">'
-	+ "<button class=\"button\">Odbierz</button> </a>")
+for (i in offers) {
+	offer = offers[i];
+	var icon;
 
-var wardrobeOfferData = ["Szafa", 'Janusz Nowakowski', 'Chcę oddać starą szafę. Jest w niezłym stanie. Jest w akceptowalnym stanie. Jej wysokość to 3 metry, jest duża :))'];
-var wardrobeOffer = L.marker([52.22057,21.01026], {icon: wardrobeIcon}).addTo(map);
-wardrobeOffer.bindPopup('<center> Szafa <br><br>'
-	+ 'Janusz Nowakowski<br>'
-	+ 'Chcę oddać starą szafę. Jest w niezłym stanie<br>'
-	+ '<a onclick="slideBar(wardrobeOfferData[0], wardrobeOfferData[1], wardrobeOfferData[2]) ">'
-	+ "<button class=\"button\">Odbierz</button> </a>")
+	switch(offer.properties.category) {
+	  case "clothes":
+		icon = shirtIcon;
+		break;
+	  case "furniture":
+		icon = wardrobeIcon;
+		break;
+	};
 
-var cupboardOfferData = ["Szafka", 'John Doe', 'Hi everyone! I really want to get rid of that cupboard. Recently, I have bought the new one. So, please, take it to your house:)'];
-var cupboardOffer = L.marker([52.222573,21.00963], {icon: cupboardIcon}).addTo(map);
-cupboardOffer.bindPopup('<center> Szafka <br><br>'
-	+ 'John Doe<br>'
-	+ 'I have old cupboard. <br>'
-	+ '<a onclick="slideBar(cupboardOfferData[0], cupboardOfferData[1], cupboardOfferData[2]) ">'
-	+ "<button class=\"button\">Odbierz</button> </a>")
+	offerMarker = L.marker([offer.geometry.coordinates[1], offer.geometry.coordinates[0]], {icon: icon});
+	offerMarker.addTo(map)
+	offerMarker.bindPopup(
+			'<center>' +
+			offer.properties.title + '<br>'
+			+ 'Opis ' + '<br>' + offer.properties.description + '<br>'
+			+ 'Termin odbioru ' + '<br>' + offer.properties.term + '<br>'
+			+ 'Autor<br>' + offer.properties.author + '<br><a onclick="slideBar(' + "'" 
+			+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
+			+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
+			+ "<button class=\"button\">Odbierz</button> </a></center>" 
+	);
+};
 
-function slideBar(Title, Author, Description) {
+function onEachFeature(feature, layer) {
+    layer.bindPopup(feature.properties.description);    
+};
+
+
+async function slideBar(Title, Author, Description) {
 	document.getElementById("sidebar").style.width = "20%";
 	document.getElementById("map").style.marginLeft= "20%";
 	document.getElementById('Title').innerText = Title;
 	document.getElementById('Author').innerText = Author;
 	document.getElementById('Description').innerText = Description;
+	console.log(Title, Author, Description)
 };
