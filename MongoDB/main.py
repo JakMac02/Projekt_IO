@@ -21,28 +21,45 @@ db = client['smieciarka']
 #     print("Dodano ogłoszenie do bazy danych (kolekcja ogloszenia)")
 
 def insert_ogloszenie(ogloszenie):
-    collection = db['ogloszenia']
+    collection_ogl = db['ogloszenia']
+    collection_uz = db['uzytkownicy']
     fs = gridfs.GridFS(db)
 
-    # Load the GeoJSON data from the file
+    # Czytanie pliku GeoJSON
     with open(ogloszenie) as json_file:
         o = json.load(json_file)
 
-    # Get the list of photo paths from the GeoJSON document
+    # Czytanie ścieżek do zdjęć zawartych w pliku GeoJSON w parametre "photos"
     photo_paths = o.get("photos", [])
 
-    # Store each photo and collect their IDs
+    # Dodanie zdjęć do bazy danch i odczyanie ich ID
     photo_ids = []
     for photo_path in photo_paths:
         with open(photo_path, 'rb') as photo_file:
             photo_id = fs.put(photo_file, filename=photo_path)
             photo_ids.append(str(photo_id))
 
-    # Update the "photos" parameter with the list of image IDs
+    # Zamiana w parametrze "photos" ścieżek użytkownika na ID zdjęć w bazie danych
     o["photos"] = photo_ids
 
-    # Insert the modified document into the database
-    collection.insert_one(o)
+    # Odczytanie autora ogłoszenia
+    author = o.get("author")
+    if not author:
+        print("Brak informacji o autorze ogłoszenia w GeoJSONie")
+        return
+
+    # Odnalezienie użytkownika (autora ogłosznia) w kolekcji użytkowników
+    uz_doc = collection_uz.find_one({"nickname": author})
+    if not uz_doc:
+        print(f"Nie znaleziono użytkownika o nicku: {author}")
+        return
+
+    # Dodanie posta do parametru "posts" w dokumencie użykownika
+    collection_uz.update_one({"nickname": author},
+                             {"$push": {"posts": o}})
+
+    # Dodanie dokumentu do kolekcji ogłoszeń
+    collection_ogl.insert_one(o)
     print("Dodano ogłoszenie do bazy danych (kolekcja ogloszenia)")
 
 def insert_uzytkownik(uzytkownik):

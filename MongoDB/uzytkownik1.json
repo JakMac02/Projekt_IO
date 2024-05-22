@@ -1,12 +1,9 @@
 {
-  "Name": "Robert",
-  "Surname": "Kubica",
-  "City": "Warszawa",
-  "Picture": "KNEFO2UHT923HFIO2HGP93HNPO32NTOP3",
-  "Description": "Lubie gumę turbo żuć",
-  "Posts": {
-    "1": 1,
-    "2": 2,
-    "3": 3
-  }
+  "nickname": "rkubica",
+  "name": "Robert",
+  "surname": "Kubica",
+  "city": "Warszawa",
+  "picture": "KNEFO2UHT923HFIO2HGP93HNPO32NTOP3",
+  "description": "Lubie gumę turbo żuć",
+  "posts": {}
 }

@@ -1,15 +1,23 @@
 {
+   "author":"rkubica",
    "category":"clothes",
+   "title":"szybkie buty marki zygzak mcqueen",
    "description":"lorem ipsum",
    "photos":"IWNIOIWND898YTV97QEH380V23H8",
-   "title":"szybkie buty marki zygzak mcqueen",
-   "term":"jak najszybciej",
-   "author":"Robert Kubica",
    "geometry":{
       "coordinates":[
          21.005,
          52.225
       ]
+   },
+   "availability": {
+      "monday": {"start": "15:00", "end": "18:00"},
+      "tuesday": {"start": "15:00", "end": "18:00"},
+      "wednesday": {"start": "15:00", "end": "18:00"},
+      "thursday": {"start": "15:00", "end": "18:00"},
+      "friday": {"start": "15:00", "end": "18:00"},
+      "saturday": {"start": "15:00", "end": "18:00"},
+      "sunday": {"start": "15:00", "end": "18:00"}
    },
    "type":"Point"
 }
