@@ -10,17 +10,17 @@ var schoesIcon = L.icon({
 });
 
 var shirtIcon = L.icon({
-    iconUrl: 'shirt.png',
+    iconUrl: 'Originals/shirt.png',
 	iconSize:     [60, 60],
 });
 
 var wardrobeIcon = L.icon({
-    iconUrl: 'cupboard.png',
+    iconUrl: 'Originals/cupboard.png',
 	iconSize:     [45, 60],
 });
 
 var cupboardIcon = L.icon({
-    iconUrl: 'wardrobe.png',
+    iconUrl: 'Originals/wardrobe.png',
 	iconSize:     [36, 60],
 });
 
