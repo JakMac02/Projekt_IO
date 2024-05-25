@@ -5,16 +5,27 @@ html, body {
 }
 
 /* The side navigation menu */
-.sidebar {
+.leftsidebar {
   margin: 0;
   padding: 0px;
-  width: 250;
   background-color: #f2f5f0;
   position: fixed;
   height: 100%;
   overflow-x: hidden;
   transition: 0.5s;
   position: fixed;
+}
+
+
+.rightsidebar {
+  right: 0px;
+  padding: 0px;
+  background-color: #f2f5f0;
+  position: right;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  position: absolute;
 }
 
 
@@ -26,7 +37,7 @@ html, body {
   transition: 0.5s;
 }
 
-.button {
+#buttonGet {
   background-color: #6f8d5e; /* Green */
   border: none;
   color: white;
@@ -39,7 +50,7 @@ html, body {
   cursor: pointer;
 }
 
-.button:hover {
+#buttonGet:hover {
   background-color: #9eb691;
   color: white;
 }
@@ -153,7 +164,7 @@ body {font-family: Verdana, sans-serif;}
 
 
 /* Set a style for the submit/login button */
-.btn {
+#btn {
   background-color: #04AA6D;
   color: white;
   padding: 16px 20px;
@@ -162,4 +173,28 @@ body {font-family: Verdana, sans-serif;}
   width: 100%;
   margin-bottom:10px;
   opacity: 0.8;
+}
+
+#buttonAdd {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+
+	z-index: 400;
+	
+	background-color: #6f8d5e;
+
+	color: white;
+	height: 50px;
+	border: none;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 40px;
+
+	border-radius: 50%;
+}
+
+#buttonAdd:hover {
+  background-color: #9eb691;
 }
