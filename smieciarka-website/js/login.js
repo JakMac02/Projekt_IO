@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.style.display = 'none';
     });
     SignInButton.addEventListener('click', function() {
-        location.href = "https://jakmac02.github.io/Projekt_IO/smieciarka-website/main.html";
+        location.href = "main.html";
 
     });
     SignUpButton.addEventListener('click', function() {
-        location.href = "https://jakmac02.github.io/Projekt_IO/smieciarka-website/main.html";
+        location.href = "main.html";
 
     });
 
