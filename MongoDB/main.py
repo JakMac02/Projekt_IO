@@ -193,4 +193,4 @@ def wyszukaj_ogloszenie(center, distance, kategoria=None):
 # insert_uzytkownik("uzytkownik1.json")
 # insert_ogloszenie("ogloszenie.json")
 # insert_many_uzytkownicy("uzytkownicy.json")
-# insert_many_ogloszenia("ogloszenia.json")
+# insert_many_ogloszenia("ogloszenia.json"))
