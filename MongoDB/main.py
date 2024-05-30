@@ -4,7 +4,6 @@ from kategorie import kategorie
 from pymongo import GEO2D
 import gridfs
 
-
 connection_string = "mongodb+srv://jedrzejpysiak:JacaGaming%212@smieciarka.3wt9l5s.mongodb.net/"
 # connection = pymongo.MongoClient(connection_string)
 
@@ -62,33 +61,88 @@ def insert_ogloszenie(ogloszenie):
     collection_ogl.insert_one(o)
     print("Dodano ogłoszenie do bazy danych (kolekcja ogloszenia)")
 
+# def insert_uzytkownik(uzytkownik):
+#     collection = db['uzytkownicy']
+#
+#     with open(uzytkownik) as json_file:
+#         uz = json.load(json_file)
+#
+#     collection.insert_one(uz)
+#     print("Dodano użytkownika do bazy danych (kolekcja uzytkownicy)")
+
 def insert_uzytkownik(uzytkownik):
     collection = db['uzytkownicy']
+    fs = gridfs.GridFS(db)
 
     with open(uzytkownik) as json_file:
         uz = json.load(json_file)
+
+    photo_paths = uz.get("picture", [])
+    photo_ids = []
+    for photo_path in photo_paths:
+        with open(photo_path, 'rb') as photo_file:
+            photo_id = fs.put(photo_file, filename=photo_path)
+            photo_ids.append(str(photo_id))
+
+    uz["picture"] = photo_ids
 
     collection.insert_one(uz)
     print("Dodano użytkownika do bazy danych (kolekcja uzytkownicy)")
 
 
-def insert_many_ogloszenia(ogloszenia):
-    collection = db['ogloszenia']
-    lista_ogloszen = []
-    with open(ogloszenia) as json_file:
-        ogl = json.load(json_file)
+# def insert_many_ogloszenia(ogloszenia):
+#     collection = db['ogloszenia']
+#     lista_ogloszen = []
+#     with open(ogloszenia) as json_file:
+#         ogl = json.load(json_file)
+#
+#     for i in ogl['ogloszenia']:
+#         lista_ogloszen.append(i)
+#
+#     collection.insert_many(lista_ogloszen)
+#     print("Dodano ogłoszenia do bazy danych (kolekcja ogloszenia)")
 
-    for i in ogl['ogloszenia']:
-        lista_ogloszen.append(i)
 
-    collection.insert_many(lista_ogloszen)
-    print("Dodano ogłoszenia do bazy danych (kolekcja ogloszenia)")
+def insert_many_ogloszenia(json_file):
+    with open(json_file) as file:
+        data = json.load(file)
+        ogloszenia = data.get("ogloszenia", [])
+        collection_ogl = db['ogloszenia']
+        collection_uz = db['uzytkownicy']
+        fs = gridfs.GridFS(db)
+        for ogloszenie in ogloszenia:
+            photo_paths = ogloszenie.get("photos", [])
+            photo_ids = []
+            for photo_path in photo_paths:
+                with open(photo_path, 'rb') as photo_file:
+                    photo_id = fs.put(photo_file, filename=photo_path)
+                    photo_ids.append(str(photo_id))
+            ogloszenie["photos"] = photo_ids
+            author = ogloszenie.get("author")
+            if not author:
+                print("Brak informacji o autorze ogłoszenia w GeoJSONie")
+                continue
+            uz_doc = collection_uz.find_one({"nickname": author})
+            if not uz_doc:
+                print(f"Nie znaleziono użytkownika o nicku: {author}")
+                continue
+            collection_uz.update_one({"nickname": author}, {"$push": {"posts": ogloszenie}})
+        collection_ogl.insert_many(ogloszenia)
+        print("Dodano ogłoszenia do bazy danych (kolekcja ogloszenia)")
+
+
+# def insert_many_uzytkownicy(uzytkownicy):
+#     with open(uzytkownicy, encoding='utf-8') as json_file:
+#         data = json.load(json_file)
+#         uzytkownicy = data.get("uzytkownicy", [])
+#         for uzytkownik in uzytkownicy:
+#             insert_uzytkownik(uzytkownik)
 
 
 def insert_many_uzytkownicy(uzytkownicy):
     collection = db['uzytkownicy']
     lista_uzytkownikow = []
-    with open(uzytkownicy) as json_file:
+    with open(uzytkownicy, encoding='utf-8') as json_file:
         uz = json.load(json_file)
 
     for i in uz['uzytkownicy']:
@@ -119,10 +173,11 @@ def wyszukaj_ogloszenie(center, distance, kategoria=None):
     return list(result)
 
 
-print(wyszukaj_ogloszenie([20.984, 52.244], 5, ["clothes"]))
+# print(wyszukaj_ogloszenie([20.984, 52.244], 5, ["clothes"]))
 
-collection = db['ogloszenia']
-fs = gridfs.GridFS(db)
+
+# collection = db['ogloszenia']
+# fs = gridfs.GridFS(db)
 
 # with open(r'F:\zdjecia\komoda.jpg', 'rb') as image_file:
 #     fs.put(image_file, filename="komoda.jpg")
@@ -134,5 +189,8 @@ fs = gridfs.GridFS(db)
 #         with open(save_path, 'wb') as f:
 #             f.write(image.read())
 
-# insert_ogloszenie("ogloszenie.json")
 
+# insert_uzytkownik("uzytkownik1.json")
+# insert_ogloszenie("ogloszenie.json")
+# insert_many_uzytkownicy("uzytkownicy.json")
+# insert_many_ogloszenia("ogloszenia.json")
