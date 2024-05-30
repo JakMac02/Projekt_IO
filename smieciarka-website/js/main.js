@@ -73,3 +73,15 @@ function addOffer() {
 	document.getElementById("map").style.marginRight= "20%";
 	document.getElementById("buttonAdd").style.visibility= "hidden";
 };
+
+function insertOffer(){
+	var title = document.getElementById("title").value;
+	
+	var type = document.getElementsByTagName('select')[0].value;
+	var term1 = document.getElementById('date1').value;
+	var term3 = document.getElementById('date3').value;
+	var term2 = document.getElementById('date2').value;
+	var description = document.getElementById("description").value;
+	
+	console.log(title, ',', type, ',', term1, ',', term2, ',', term3, ',', description);
+}
