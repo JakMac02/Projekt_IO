@@ -89,6 +89,7 @@ const photosList = []
 
 const fileSelector = document.getElementById('file-selector');
 fileSelector.addEventListener('change', (event) => {
+	const photosList = []
 	const fileList = event.target.files;
 	console.log(fileList)
 	for (i = 0; i < fileList.length; i++) {
