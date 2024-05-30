@@ -3,7 +3,7 @@
   "name": "Robert",
   "surname": "Kubica",
   "city": "Warszawa",
-  "picture": "KNEFO2UHT923HFIO2HGP93HNPO32NTOP3",
-  "description": "Lubie gumę turbo żuć",
-  "posts": {}
+  "picture": ["F:\\zdjecia\\profil\\rkubica.jpg"],
+  "description": "Największy fan Zygzaka McQueena",
+  "posts": []
 }

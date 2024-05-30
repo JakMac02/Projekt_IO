@@ -1,9 +1,11 @@
 {
    "author":"rkubica",
-   "category":"clothes",
+   "category":"Odzież",
    "title":"szybkie buty marki zygzak mcqueen",
    "description":"lorem ipsum",
-   "photos":"IWNIOIWND898YTV97QEH380V23H8",
+   "photos": ["F:\\zdjecia\\buty_zygzakmcqueen\\buty_zygzakmcqueen1.jpg",
+      "F:\\zdjecia\\buty_zygzakmcqueen\\buty_zygzakmcqueen2.jpg",
+      "F:\\zdjecia\\buty_zygzakmcqueen\\buty_zygzakmcqueen3.jpg"],
    "geometry":{
       "coordinates":[
          21.005,
