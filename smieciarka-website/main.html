@@ -21,62 +21,31 @@
 	<body>	
 		
 		<div id="leftsidebar" class="leftsidebar" >
-			<h1 id = "Title"></h1>
-			<p id = "Author"></p>
-			<p id = "Description"></p>
-			<div class="month">
-				  <ul>
-					<li>Maj<br><span style="font-size:18px">2024</span></li>
-				  </ul>
-				</div>
-				<center>
-				<ul class="weekdays">
-				  <li>Mo</li>
-				  <li>Tu</li>
-				  <li>We</li>
-				  <li>Th</li>
-				  <li>Fr</li>
-				  <li>Sa</li>
-				  <li>Su</li>
-				</ul>
-
-				<ul class="days">
-				  <li>6</li>
-				  <li><span class="active">7</span></li>
-				  <li>8</li>
-				  <li>9</li>
-				  <li>10</li>
-				  <li>11</li>
-				  <li>12</li>
-				</ul>
-				<ul class="days">
-				  <li2>13</li2>
-				  <li2><span class="active">14</span></li2>
-				  <li2><span class="active">15</span></li2>
-				  <li2>16</li2>
-				  <li2>17</li2>
-				  <li2>18</li2>
-				  <li2>19</li2>
-				</ul>
-				
-				
+			<center>
+				<h1 id = "Title"></h1>
+				<b><p id = "Author"></p></b>
+				<p id = "Description"></p>
+				<label for="term" id = "term"><b>Termin odbioru</b></label><br><br>
+					<label><input type="date" id="date0" name="date1"> </label><br>
+				<br>
+					
 				<label><b>Wiadomość</b></label><br>
 
-				<textarea placeholder="Dodaj wiadomość.." name="msg" required></textarea>
-			<button id="buttonGet">Odbierz</button>
-				
-			
+				<textarea placeholder="Dodaj wiadomość.." name="msg" required></textarea><br><br>
+				<button id="buttonGet">Odbierz</button>
+					
+			</center>	
 		</div>
 		
 		<div id="rightsidebar" class="rightsidebar" >
 			<h1>Dodaj ogłoszenie</h1>	
 			
 			<center>
-				<label for="title">Tytuł ogłoszenia</label><br>
+				<label for="title"><b>Tytuł ogłoszenia</b></label><br>
 					<input type="text" id="title" name="title">
 				<br><br>
 				
-				<label for="title" id="type">Rodzaj artykułu</label><br>
+				<label for="type" id="type"><b>Rodzaj artykułu</b></label><br>
 				<select>
 					<option value="clothes">Odzież</option>
 					<option value="furniture">Meble</option>
@@ -90,14 +59,17 @@
 				</select>
 				<br><br>
 				
-				<label for="title">Termin odbioru</label><br><br>
-					<label>Preferowany: <input type="date" id="date1" name="date1"> </label>
-					<label>Dodatkowy 1: <input type="date" id="date2" name="date2"> </label>
-					<label>Dodatkowy 2: <input type="date" id="date3" name="date4"> </label>
+				<label for="term" id = "term"><b>Termin odbioru</b></label><br>
+					<label>Preferowany: <input type="date" id="date1" name="date1"> </label><br>
+					<label>Dodatkowy 1: <input type="date" id="date2" name="date2"> </label><br>
+					<label>Dodatkowy 2: <input type="date" id="date3" name="date4"> </label><br>
+				<br>
+				
+				<label for="description"><b>Opis</b></label><br>
+					<textarea placeholder="Dodaj opis.." id="description" name="description" required></textarea>
 				<br><br>
 				
-				<label for="title">Opis</label><br>
-					<textarea placeholder="Dodaj opis.." id="description" name="description" required></textarea>
+				<input type="file" id="file-selector" multiple> 
 				<br><br>
 			
 				<button id="buttonGet" onclick="insertOffer()">Dodaj</button>

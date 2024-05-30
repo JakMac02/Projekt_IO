@@ -57,7 +57,6 @@ function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.description);    
 };
 
-
 async function answerToTheOffer(Title, Author, Description) {
 	document.getElementById("leftsidebar").style.width = "20%";
 	document.getElementById("map").style.marginLeft= "20%";
@@ -83,5 +82,17 @@ function insertOffer(){
 	var term2 = document.getElementById('date2').value;
 	var description = document.getElementById("description").value;
 	
-	console.log(title, ',', type, ',', term1, ',', term2, ',', term3, ',', description);
+	console.log(title, ',', type, ',', term1, ',', term2, ',', term3, ',', photosList, ',', description);
 }
+
+const photosList = []
+
+const fileSelector = document.getElementById('file-selector');
+fileSelector.addEventListener('change', (event) => {
+	const fileList = event.target.files;
+	console.log(fileList)
+	for (i = 0; i < fileList.length; i++) {
+		photosList.push(fileList[i].name)
+	}
+	console.log(photosList)
+});
