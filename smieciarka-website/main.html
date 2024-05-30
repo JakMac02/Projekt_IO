@@ -62,7 +62,7 @@
 				
 				<label><b>Wiadomość</b></label><br>
 
-				<textarea placeholder="Type message.." name="msg" required></textarea>
+				<textarea placeholder="Dodaj wiadomość.." name="msg" required></textarea>
 			<button id="buttonGet">Odbierz</button>
 				
 			
@@ -70,9 +70,37 @@
 		
 		<div id="rightsidebar" class="rightsidebar" >
 			<h1>Dodaj ogłoszenie</h1>	
-			<label for="title">Tytuł ogłoszenia:</label> <input type="text" id="title" name="title"><br><br>
+			
 			<center>
-			<button id="buttonGet">Dodaj</button>
+				<label for="title">Tytuł ogłoszenia</label><br>
+					<input type="text" id="title" name="title">
+				<br><br>
+				
+				<label for="title">Rodzaj artykułu</label><br>
+				<select>
+					<option value="clothes">Odzież</option>
+					<option value="furniture">Meble</option>
+					<option value="electronics">Elektronika</option>
+					<option value="hardware">Narzędzia</option>
+					<option value="media">Książki, płyty i kasety</option>
+					<option value="cosmetics">Kosmetyki</option>
+					<option value="gardening">Ogród</option>
+					<option value="pets">Artykuły dla zwierząt</option>
+					<option value="miscancellous">inne</option>
+				</select>
+				<br><br>
+				
+				<label for="title">Termin odbioru</label><br><br>
+					<label>Preferowany: <input type="date" id="date1" name="date1"> </label>
+					<label>Dodatkowy 1: <input type="date" id="date2" name="date2"> </label>
+					<label>Dodatkowy 2: <input type="date" id="date3" name="date4"> </label>
+				<br><br>
+				
+				<label for="title">Opis</label><br>
+					<textarea placeholder="Dodaj opis.." id="description" name="description" required></textarea>
+				<br><br>
+			
+				<button id="buttonGet">Dodaj</button>
 			</center>
 		</div>
 		
