@@ -1,27 +1,29 @@
 var map = L.map('map').setView([52.222, 21.01], 16);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
 
+const key = 'jGfOqGPMv9RV54EWyXtE';
+const mtLayer = L.maptilerLayer({
+	apiKey: key,
+	style: "e6471f4f-29f8-4212-9120-26a47d13b86a", //optional
+}).addTo(map);
+	  
 var schoesIcon = L.icon({
-    iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Football_shoe.svg',
-	iconSize:     [75, 45],
+    iconUrl: 'Originals/clothes.png',
+	iconSize:     [70, 70],
 });
 
 var shirtIcon = L.icon({
-    iconUrl: 'Originals/shirt.png',
-	iconSize:     [60, 60],
+    iconUrl: 'Originals/clothes.png',
+	iconSize:     [70, 70],
 });
 
 var wardrobeIcon = L.icon({
-    iconUrl: 'Originals/cupboard.png',
-	iconSize:     [45, 60],
+    iconUrl: 'Originals/furniture.png',
+	iconSize:     [70, 70],
 });
 
 var cupboardIcon = L.icon({
-    iconUrl: 'Originals/wardrobe.png',
-	iconSize:     [36, 60],
+    iconUrl: 'Originals/furniture.png',
+	iconSize:     [70, 70],
 });
 
 let buty = "Buty"
