@@ -6,25 +6,60 @@ const mtLayer = L.maptilerLayer({
 	style: "e6471f4f-29f8-4212-9120-26a47d13b86a", //optional
 }).addTo(map);
 	  
-var schoesIcon = L.icon({
+var furnitureIcon = L.icon({
+    iconUrl: 'Originals/furniture.png',
+	iconSize:     [70, 70],
+});	  
+	  
+var clothesIcon = L.icon({
     iconUrl: 'Originals/clothes.png',
 	iconSize:     [70, 70],
 });
 
-var shirtIcon = L.icon({
-    iconUrl: 'Originals/clothes.png',
+var electronicsIcon = L.icon({
+    iconUrl: 'Originals/electronics.png',
 	iconSize:     [70, 70],
 });
 
-var wardrobeIcon = L.icon({
-    iconUrl: 'Originals/furniture.png',
+var gardeningIcon = L.icon({
+    iconUrl: 'Originals/gardening.png',
 	iconSize:     [70, 70],
 });
 
-var cupboardIcon = L.icon({
-    iconUrl: 'Originals/furniture.png',
+var homeFurnishingsIcon = L.icon({
+    iconUrl: 'Originals/home-furnishings.png',
 	iconSize:     [70, 70],
 });
+
+var kidsIcon = L.icon({
+    iconUrl: 'Originals/kids.png',
+	iconSize:     [70, 70],
+});
+
+var mediaIcon = L.icon({
+    iconUrl: 'Originals/media.png',
+	iconSize:     [70, 70],
+});
+
+var miscellaneousIcon = L.icon({
+    iconUrl: 'Originals/miscellaneous.png',
+	iconSize:     [70, 70],
+});
+var petsIcon = L.icon({
+    iconUrl: 'Originals/pets.png',
+	iconSize:     [70, 70],
+});
+
+var sportIcon = L.icon({
+    iconUrl: 'Originals/sport.png',
+	iconSize:     [70, 70],
+});
+
+var toolsIcon = L.icon({
+    iconUrl: 'Originals/tools.png',
+	iconSize:     [70, 70],
+});
+
 
 let buty = "Buty"
 
@@ -33,12 +68,39 @@ for (i in offers) {
 	var icon;
 
 	switch(offer.properties.category) {
-	  case "clothes":
-		icon = shirtIcon;
-		break;
-	  case "furniture":
-		icon = wardrobeIcon;
-		break;
+		case "clothes":
+			icon = clothesIcon;
+			break;
+		case "furniture":
+			icon = furnitureIcon;
+			break;
+		case "electronics":
+			icon = electronicsIcon;
+			break;
+		case "gardening":
+			icon = gardeningIcon;
+			break;
+		case "home-furnishings":
+			icon = homeFurnishingsIcon;
+			break;
+		case "kids":
+			icon = kidsIcon;
+			break;
+		case "media":
+			icon = mediaIcon;
+			break;
+		case "miscellaneous":
+			icon = miscellaneousIcon;
+			break;
+		case "pets":
+			icon = petsIcon;
+			break;
+		case "sport":
+			icon = sportIcon;
+			break;
+		case "tools":
+			icon = toolsIcon;
+			break;
 	};
 
 	offerMarker = L.marker([offer.geometry.coordinates[1], offer.geometry.coordinates[0]], {icon: icon});
@@ -80,11 +142,10 @@ function insertOffer(){
 	
 	var type = document.getElementsByTagName('select')[0].value;
 	var term1 = document.getElementById('date1').value;
-	var term3 = document.getElementById('date3').value;
-	var term2 = document.getElementById('date2').value;
 	var description = document.getElementById("description").value;
+	var latlon = document.getElementById("latlon").value;
 	
-	console.log(title, ',', type, ',', term1, ',', term2, ',', term3, ',', photosList, ',', description);
+	console.log(title, ',', type, ',', term1, ',', photosList, ',', description, ',', latlon);
 }
 
 const photosList = []
@@ -99,3 +160,9 @@ fileSelector.addEventListener('change', (event) => {
 	}
 	console.log(photosList)
 });
+
+function onMapClick(e) {
+	document.getElementById("latlon").value = e.latlng;
+};
+
+map.on('click', onMapClick);

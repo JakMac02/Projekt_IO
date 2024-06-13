@@ -65,9 +65,7 @@
 				<br><br>
 				
 				<label for="term" id = "term"><b>Termin odbioru</b></label><br>
-					<label>Preferowany: <input type="date" id="date1" name="date1"> </label><br>
-					<label>Dodatkowy 1: <input type="date" id="date2" name="date2"> </label><br>
-					<label>Dodatkowy 2: <input type="date" id="date3" name="date4"> </label><br>
+					<label><input type="date" id="date1" name="date1"> </label><br>
 				<br>
 				
 				<label for="description"><b>Opis</b></label><br>
@@ -75,6 +73,10 @@
 				<br><br>
 				
 				<input type="file" id="file-selector" multiple> 
+				<br><br>
+				
+				<label for="latlon"><b>Lokalizacja</b></label><br>
+					<input type="text" id="latlon" name="latlon">
 				<br><br>
 			
 				<button id="buttonGet" onclick="insertOffer()">Dodaj</button>
