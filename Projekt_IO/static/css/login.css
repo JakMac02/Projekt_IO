@@ -1,0 +1,99 @@
+
+body {
+    background-image: url('../img/map_background.png');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.button {
+    background: #BAC9A6; /* Kolor tła */
+    box-shadow: inset 10px 13px 49px -3px #bac9a6;
+    border-radius: 22px;
+    display: inline-block;
+    cursor: pointer;
+    color: #2e2e2e;
+    font-family: Georgia;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 30px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: linear-gradient(to bottom, #bdd1af 5%, #dbe6c4 100%);
+    background-color: #bdd1af;
+}
+
+.button:active {
+    position: relative;
+    top: 1px;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Wycentruj elementy .tabs */
+    max-width: 225px;
+    max-height: 80px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.tabs input[type="radio"] {
+    display: none; /* Ukryj domyślne radio */
+}
+
+.tabs label {
+    padding: 20px;
+    font-weight: bold;
+    cursor: pointer; /* Dodaj kursor wskazujący na etykiecie */
+    border-radius: 5px; /* Zaokrąglenie krawędzi etykiety */
+}
+
+/* Dodaj styl dla niezaznaczonych etykiet */
+.tabs input[type="radio"]:not(:checked) + label {
+    background-color: #ddd; /* Kolor tła dla niezaznaczonych etykiet */
+    color: #555; /* Kolor tekstu dla niezaznaczonych etykiet */
+}
+
+/* Dodaj styl dla zaznaczonych etykiet */
+.tabs input[type="radio"]:checked + label {
+    background-color: #bdd1af; /* Kolor tła dla zaznaczonych etykiet */
+    color: #2e2e2e; /* Kolor tekstu dla zaznaczonych etykiet */
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.3); /* Dodaj cień dla zaznaczonych etykiet */
+}
+
+.tabs .form {
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+    background-color:#f9f9f9;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#666666;
+    font-family:Georgia;
+    font-size:15px;
+    font-weight:bold;
+    padding:100px 150px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff; /* Wycentruj elementy formularzy */
+}
+
+/* Ukryj formularz rejestracji na początku */
+#register-form {
+    display: none;
+}
+
+/* Dodaj ten styl, aby wyświetlić tylko formularz logowania na początku */
+#login-form {
+    display: block;
+}

@@ -1,0 +1,28 @@
+kategorie_eng = ["children",
+             "clothes",
+             "cosmetics",
+             "electronics",
+             "furniture",
+             "gardening",
+             "tools",
+             "home furnishings",
+             "media",
+             "ornaments",
+             "pets",
+             "sport",
+             "miscellaneous"]
+
+kategorie = ["dzieci",
+             "odzież",
+             "obuwie"
+             "kosmetyki",
+             "elektronika",
+             "meble",
+             "ogrodnictwo",
+             "narzędzia",
+             "wyposażenie domu",
+             "media",
+             "ozdoby",
+             "zwierzęta",
+             "sport",
+             "inne"]

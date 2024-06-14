@@ -1,0 +1,405 @@
+{
+  "ogloszenia":[
+  {
+    "author": "amalinowska",
+    "category": "odzież",
+    "title": "Kurtka zimowa damska",
+    "description": "Ciepła kurtka zimowa w dobrym stanie, idealna na mroźne dni.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.012, 52.229],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "17:00", "end": "20:00"},
+      "tuesday": {"start": "17:00", "end": "20:00"},
+      "wednesday": {"start": "17:00", "end": "20:00"},
+      "thursday": {"start": "17:00", "end": "20:00"},
+      "friday": {"start": "17:00", "end": "20:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "amalinowska",
+    "category": "media",
+    "title": "Książki o zdrowym stylu życia",
+    "description": "Książki pełne porad dotyczących zdrowego odżywiania i ćwiczeń.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.012, 52.229],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "17:00", "end": "20:00"},
+      "tuesday": {"start": "17:00", "end": "20:00"},
+      "wednesday": {"start": "17:00", "end": "20:00"},
+      "thursday": {"start": "17:00", "end": "20:00"},
+      "friday": {"start": "17:00", "end": "20:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "kjankowski",
+    "category": "sport",
+    "title": "Piłka do koszykówki",
+    "description": "Używana piłka do koszykówki, idealna do gry na boisku.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.027, 52.224],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "16:00", "end": "19:00"},
+      "tuesday": {"start": "16:00", "end": "19:00"},
+      "wednesday": {"start": "16:00", "end": "19:00"},
+      "thursday": {"start": "16:00", "end": "19:00"},
+      "friday": {"start": "16:00", "end": "19:00"},
+      "saturday": {"start": "12:00", "end": "16:00"},
+      "sunday": {"start": "12:00", "end": "16:00"}
+    }
+  },
+  {
+    "author": "kjankowski",
+    "category": "media",
+    "title": "Gra planszowa Monopoly",
+    "description": "Kompletna gra planszowa Monopoly w dobrym stanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.027, 52.224],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "16:00", "end": "19:00"},
+      "tuesday": {"start": "16:00", "end": "19:00"},
+      "wednesday": {"start": "16:00", "end": "19:00"},
+      "thursday": {"start": "16:00", "end": "19:00"},
+      "friday": {"start": "16:00", "end": "19:00"},
+      "saturday": {"start": "12:00", "end": "16:00"},
+      "sunday": {"start": "12:00", "end": "16:00"}
+    }
+  },
+  {
+    "author": "msikora",
+    "category": "ozdoby",
+    "title": "Zestaw do malowania",
+    "description": "Zestaw farb, pędzli i płócien, idealny dla początkujących artystów.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.015, 52.232],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "18:00", "end": "21:00"},
+      "tuesday": {"start": "18:00", "end": "21:00"},
+      "wednesday": {"start": "18:00", "end": "21:00"},
+      "thursday": {"start": "18:00", "end": "21:00"},
+      "friday": {"start": "18:00", "end": "21:00"},
+      "saturday": {"start": "14:00", "end": "18:00"},
+      "sunday": {"start": "14:00", "end": "18:00"}
+    }
+  },
+  {
+    "author": "msikora",
+    "category": "ogrodnictwo",
+    "title": "Doniczki i rośliny doniczkowe",
+    "description": "Kilka różnych doniczek z roślinami, idealne do domu lub biura.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.015, 52.232],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "18:00", "end": "21:00"},
+      "tuesday": {"start": "18:00", "end": "21:00"},
+      "wednesday": {"start": "18:00", "end": "21:00"},
+      "thursday": {"start": "18:00", "end": "21:00"},
+      "friday": {"start": "18:00", "end": "21:00"},
+      "saturday": {"start": "14:00", "end": "18:00"},
+      "sunday": {"start": "14:00", "end": "18:00"}
+    }
+  },
+  {
+    "author": "pjablonski",
+    "category": "elektronika",
+    "title": "Stary laptop",
+    "description": "Starszy model laptopa, działa dobrze do prostych zadań.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.037, 52.222],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "10:00", "end": "14:00"},
+      "tuesday": {"start": "10:00", "end": "14:00"},
+      "wednesday": {"start": "10:00", "end": "14:00"},
+      "thursday": {"start": "10:00", "end": "14:00"},
+      "friday": {"start": "10:00", "end": "14:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "pjablonski",
+    "category": "media",
+    "title": "Kolekcja gier na PlayStation 2",
+    "description": "Zestaw 10 gier na konsolę PlayStation 2 w dobrym stanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.037, 52.222],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "10:00", "end": "14:00"},
+      "tuesday": {"start": "10:00", "end": "14:00"},
+      "wednesday": {"start": "10:00", "end": "14:00"},
+      "thursday": {"start": "10:00", "end": "14:00"},
+      "friday": {"start": "10:00", "end": "14:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "ewisniewska",
+    "category": "wyposażenie domu",
+    "title": "Zestaw naczyń kuchennych",
+    "description": "Kompletny zestaw talerzy, misek i sztućców w dobrym stanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.029, 52.226],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "14:00", "end": "18:00"},
+      "tuesday": {"start": "14:00", "end": "18:00"},
+      "wednesday": {"start": "14:00", "end": "18:00"},
+      "thursday": {"start": "14:00", "end": "18:00"},
+      "friday": {"start": "14:00", "end": "18:00"},
+      "saturday": {"start": "12:00", "end": "16:00"},
+      "sunday": {"start": "12:00", "end": "16:00"}
+    }
+  },
+  {
+    "author": "ewisniewska",
+    "category": "media",
+    "title": "Książki kucharskie",
+    "description": "Zbiór książek kucharskich z przepisami na różne okazje.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.029, 52.226],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "14:00", "end": "18:00"},
+      "tuesday": {"start": "14:00", "end": "18:00"},
+      "wednesday": {"start": "14:00", "end": "18:00"},
+      "thursday": {"start": "14:00", "end": "18:00"},
+      "friday": {"start": "14:00", "end": "18:00"},
+      "saturday": {"start": "12:00", "end": "16:00"},
+      "sunday": {"start": "12:00", "end": "16:00"}
+    }
+  },
+  {
+    "author": "ldabrowski",
+    "category": "meble",
+    "title": "Stara komoda",
+    "description": "Drewniana komoda z lat 80. w dobrym stanie, idealna do renowacji.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.045, 52.231],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "13:00", "end": "17:00"},
+      "tuesday": {"start": "13:00", "end": "17:00"},
+      "wednesday": {"start": "13:00", "end": "17:00"},
+      "thursday": {"start": "13:00", "end": "17:00"},
+      "friday": {"start": "13:00", "end": "17:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "ldabrowski",
+    "category": "media",
+    "title": "Płyty winylowe",
+    "description": "Kolekcja płyt winylowych z lat 60. i 70., w dobrym stanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.045, 52.231],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "13:00", "end": "17:00"},
+      "tuesday": {"start": "13:00", "end": "17:00"},
+      "wednesday": {"start": "13:00", "end": "17:00"},
+      "thursday": {"start": "13:00", "end": "17:00"},
+      "friday": {"start": "13:00", "end": "17:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "kmichalska",
+    "category": "ogrodnictwo",
+    "title": "Nasiona kwiatów",
+    "description": "Mieszanka nasion różnych kwiatów, idealne do ogrodu.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.033, 52.229],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "16:00", "end": "20:00"},
+      "tuesday": {"start": "16:00", "end": "20:00"},
+      "wednesday": {"start": "16:00", "end": "20:00"},
+      "thursday": {"start": "16:00", "end": "20:00"},
+      "friday": {"start": "16:00", "end": "20:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "kmichalska",
+    "category": "narzędzia",
+    "title": "Zestaw narzędzi ogrodowych",
+    "description": "Zestaw narzędzi do ogrodu, w tym łopaty, grabie i nożyce.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.033, 52.229],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "16:00", "end": "20:00"},
+      "tuesday": {"start": "16:00", "end": "20:00"},
+      "wednesday": {"start": "16:00", "end": "20:00"},
+      "thursday": {"start": "16:00", "end": "20:00"},
+      "friday": {"start": "16:00", "end": "20:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "rtomaszewski",
+    "category": "media",
+    "title": "Gitara akustyczna",
+    "description": "Gitara akustyczna w dobrym stanie, idealna dla początkujących.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.038, 52.230],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "15:00", "end": "19:00"},
+      "tuesday": {"start": "15:00", "end": "19:00"},
+      "wednesday": {"start": "15:00", "end": "19:00"},
+      "thursday": {"start": "15:00", "end": "19:00"},
+      "friday": {"start": "15:00", "end": "19:00"},
+      "saturday": {"start": "11:00", "end": "15:00"},
+      "sunday": {"start": "11:00", "end": "15:00"}
+    }
+  },
+  {
+    "author": "rtomaszewski",
+    "category": "elektronika",
+    "title": "Mikrofon studyjny",
+    "description": "Profesjonalny mikrofon studyjny, idealny do nagrywania muzyki.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.038, 52.230],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "15:00", "end": "19:00"},
+      "tuesday": {"start": "15:00", "end": "19:00"},
+      "wednesday": {"start": "15:00", "end": "19:00"},
+      "thursday": {"start": "15:00", "end": "19:00"},
+      "friday": {"start": "15:00", "end": "19:00"},
+      "saturday": {"start": "11:00", "end": "15:00"},
+      "sunday": {"start": "11:00", "end": "15:00"}
+    }
+  },
+  {
+    "author": "mwojcik",
+    "category": "media",
+    "title": "Powieści kryminalne",
+    "description": "Zbiór powieści kryminalnych, idealne na wieczorne czytanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.041, 52.228],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "17:00", "end": "21:00"},
+      "tuesday": {"start": "17:00", "end": "21:00"},
+      "wednesday": {"start": "17:00", "end": "21:00"},
+      "thursday": {"start": "17:00", "end": "21:00"},
+      "friday": {"start": "17:00", "end": "21:00"},
+      "saturday": {"start": "14:00", "end": "18:00"},
+      "sunday": {"start": "14:00", "end": "18:00"}
+    }
+  },
+  {
+    "author": "mwojcik",
+    "category": "odzież",
+    "title": "Koszule męskie",
+    "description": "Zestaw koszul męskich, różne rozmiary i wzory, w dobrym stanie.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.041, 52.228],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "17:00", "end": "21:00"},
+      "tuesday": {"start": "17:00", "end": "21:00"},
+      "wednesday": {"start": "17:00", "end": "21:00"},
+      "thursday": {"start": "17:00", "end": "21:00"},
+      "friday": {"start": "17:00", "end": "21:00"},
+      "saturday": {"start": "14:00", "end": "18:00"},
+      "sunday": {"start": "14:00", "end": "18:00"}
+    }
+  },
+  {
+    "author": "pkowalczyk",
+    "category": "media",
+    "title": "Albumy ze zdjęciami",
+    "description": "Różne albumy ze zdjęciami, pamiątki rodzinne z lat 90.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.022, 52.220],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "10:00", "end": "14:00"},
+      "tuesday": {"start": "10:00", "end": "14:00"},
+      "wednesday": {"start": "10:00", "end": "14:00"},
+      "thursday": {"start": "10:00", "end": "14:00"},
+      "friday": {"start": "10:00", "end": "14:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  },
+  {
+    "author": "pkowalczyk",
+    "category": "wyposażenie domu",
+    "title": "Lampa stołowa",
+    "description": "Nowoczesna lampa stołowa, idealna do sypialni lub biura.",
+    "photos": [],
+    "geometry": {
+      "coordinates": [21.022, 52.220],
+      "type": "Point"
+    },
+    "availability": {
+      "monday": {"start": "10:00", "end": "14:00"},
+      "tuesday": {"start": "10:00", "end": "14:00"},
+      "wednesday": {"start": "10:00", "end": "14:00"},
+      "thursday": {"start": "10:00", "end": "14:00"},
+      "friday": {"start": "10:00", "end": "14:00"},
+      "saturday": {"start": "10:00", "end": "14:00"},
+      "sunday": {"start": "10:00", "end": "14:00"}
+    }
+  }
+]
+
+}

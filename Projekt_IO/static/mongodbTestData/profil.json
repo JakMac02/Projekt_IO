@@ -1,0 +1,13 @@
+{
+	"id": 1,
+  "Name": "Robert",
+  "Surname": "Kubica",
+  "City": "Warszawa",
+  "Picture": "KNEFO2UHT923HFIO2HGP93HNPO32NTOP3",
+  "Description": "Lubie gumę turbo żuć",
+  "Posts": {
+    "1": 1,
+    "2": 2,
+    "3": 3
+  }
+}

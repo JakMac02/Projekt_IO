@@ -1,0 +1,200 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding-left: 0px;
+}
+
+/* The side navigation menu */
+.leftsidebar {
+  margin: 0;
+  padding: 0px;
+  background-color: #f2f5f0;
+  position: fixed;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  position: fixed;
+}
+
+
+.rightsidebar {
+  right: 0px;
+  padding: 0px;
+  background-color: #f2f5f0;
+  position: right;
+  height: 100%;
+  overflow-x: hidden;
+  transition: 0.5s;
+  position: absolute;
+}
+
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+#map {
+  margin-left: 0px;
+  height: 100%;
+  position: relative;
+  transition: 0.5s;
+}
+
+#buttonGet {
+  background-color: #6f8d5e; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#buttonGet:hover {
+  background-color: #9eb691;
+  color: white;
+}
+
+h1 {
+	padding-left: 5px;
+}
+
+p {
+	padding-left: 5px;
+}
+
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+/* Month header */
+.month {
+  padding: 5px 5px;
+  width: 100%;
+  background: #6f8d5e;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+/* Weekdays (Mon-Sun) */
+.weekdays {
+  margin: 0;
+  padding: 5px 0;
+  background-color:#ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 10%;
+  color: #666;
+  text-align: center;
+}
+
+.weekdays li2 {
+  display: inline-block;
+  width: 10%;
+  color: #666;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.days {
+  padding: 5px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li .active {
+  padding: 5px;
+  background: #6f8d5e;
+  color: white !important
+}
+
+.days li2 {
+  list-style-type: none;
+  display: inline-block;
+  width: 10%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.days li2 .active {
+  padding: 5px;
+  background: #6f8d5e;
+  color: white !important
+}
+
+
+/* Full-width textarea */
+.textarea {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+
+/* Set a style for the submit/login button */
+#btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+#buttonAdd {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+
+	z-index: 400;
+	
+	background-color: #6f8d5e;
+
+	color: white;
+	height: 50px;
+	border: none;
+	width: 50px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 40px;
+
+	border-radius: 50%;
+}
+
+#buttonAdd:hover {
+  background-color: #9eb691;
+}
