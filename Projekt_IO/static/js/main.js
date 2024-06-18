@@ -97,14 +97,14 @@ for (i in offers) {
 	console.log(offerMarker);
 	offerMarker.addTo(map)
 	offerMarker.bindPopup(
-			'<center>' +
-			offer.properties.title + '<br>'
-			+ 'Opis ' + '<br>' + offer.properties.description + '<br>'
-			+ 'Termin odbioru ' + '<br>' + offer.properties.term + '<br>'
-			+ 'Autor<br>' + offer.properties.author + '<br><a onclick="answerToTheOffer(' + "'" 
-			+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
-			+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
-			+ "<button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
+		'<center><h1><b>' +
+		offer.properties.title + '</h1></b>'
+		+ '<b>Opis</b> ' + '<br><em>' + offer.properties.description + '</em><br><br>'
+		+ '<b>Termin odbioru</b> ' + '<br>' + offer.properties.term + '<br><br>'
+		+ '<b>Autor</b><br>' + offer.properties.author + '<br><a onclick="answerToTheOffer(' + "'" 
+		+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
+		+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
+		+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
 	);
 };
 
@@ -208,15 +208,15 @@ function insertOffer(){
 	console.log(dataMarker);
 	dataMarker.addTo(map);
 	dataMarker.bindPopup(
-		'<center>' +
-		data.title + '<br>'
-		+ 'Opis ' + '<br>' + data.description + '<br>'
-		+ 'Termin odbioru ' + '<br>' + data.term + '<br>'
-		+ 'Autor<br>' + data.author + '<br><a onclick="answerToTheOffer(' + "'" 
-		+ data.title.toString() + "'" + ',' + "'" + data.author.toString() + "'" 
-		+ ',' + "'" + data.description.toString() + "'" + ') ">'
-		+ "<button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
-);
+		'<center><h1><b>' +
+		offer.properties.title + '</h1></b>'
+		+ '<b>Opis</b> ' + '<br><em>' + offer.properties.description + '</em><br><br>'
+		+ '<b>Termin odbioru</b> ' + '<br>' + offer.properties.term + '<br><br>'
+		+ '<b>Autor</b><br>' + offer.properties.author + '<br><a onclick="answerToTheOffer(' + "'" 
+		+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
+		+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
+		+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
+	);
 
 };
 

@@ -4,15 +4,26 @@ from kategorie import kategorie
 from pymongo import GEO2D
 from flask import Flask, request, redirect, render_template, url_for, jsonify
 from bson import json_util
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
 import gridfs
 
 app = Flask(__name__, template_folder=r"Projekt_IO\templates", static_folder=r"Projekt_IO\static")
 
 connection_string = "mongodb+srv://jedrzejpysiak:JacaGaming%212@smieciarka.3wt9l5s.mongodb.net/"
 # connection = pymongo.MongoClient(connection_string)
-
 client = pymongo.MongoClient(connection_string)
+
+try:
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+    #print(client.list_database_names())
+except Exception as e:
+    print(e)
+    
+
 db = client['smieciarka']
+
 
 # def insert_ogloszenie(ogloszenie):
 #     collection = db['ogloszenia']
