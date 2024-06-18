@@ -76,7 +76,6 @@ def get_ogloszenie():
     o_json = json.dumps(o_dict)
     o = json.loads(o_json)
     
-    print(o_dict)
     
     collection_ogl = db['ogloszenia']
     collection_uz = db['uzytkownicy']
@@ -116,7 +115,7 @@ def get_ogloszenie():
     # Dodanie dokumentu do kolekcji ogłoszeń
     collection_ogl.insert_one(o)
     print("Dodano ogłoszenie do bazy danych (kolekcja ogloszenia)")
-    return 1
+    return "dziala zaejebiscie"
 
 # def insert_uzytkownik(uzytkownik):
 #     collection = db['uzytkownicy']

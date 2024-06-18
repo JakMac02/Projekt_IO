@@ -133,15 +133,20 @@ function insertOffer(){
 	var type = document.getElementsByTagName('select')[0].value;
 	var term1 = document.getElementById('date1').value;
 	var description = document.getElementById("description").value;
-	var latlon = document.getElementById("latlon").value;
-
+	var lat = document.getElementById("lat").value;
+	var lng = document.getElementById("lng").value;
 	var data = {
 				'author': 0,
 				'category': type,
 				'title': title,
 				'description' : description,
 				'photos' : "NULL",
-				'latlon' : latlon,
+				'geometry' : {
+					"coordinates": [
+						parseFloat(lat), parseFloat(lng)
+					],
+					"type": "Point"
+				},
 				'availability' : term1};
 	$.ajax({ 
 		url: '/insert', 
@@ -150,7 +155,8 @@ function insertOffer(){
 		
 		data: JSON.stringify(data), 
 		success: function(response) { 
-			console.log('Data sent to Flask:', response)
+			console.log('Data sent to Flask:', response);
+			addMarkerToMap(data);
 		}, 
 		error: function(error) { 
 			console.log(error); 
@@ -160,7 +166,61 @@ function insertOffer(){
 	console.log(offers);
 	console.log(data);
 
-}
+	var icon;
+
+	switch(data.category) {
+		case "clothes":
+			icon = clothesIcon;
+			break;
+		case "furniture":
+			icon = furnitureIcon;
+			break;
+		case "electronics":
+			icon = electronicsIcon;
+			break;
+		case "gardening":
+			icon = gardeningIcon;
+			break;
+		case "home-furnishings":
+			icon = homeFurnishingsIcon;
+			break;
+		case "kids":
+			icon = kidsIcon;
+			break;
+		case "media":
+			icon = mediaIcon;
+			break;
+		case "miscellaneous":
+			icon = miscellaneousIcon;
+			break;
+		case "pets":
+			icon = petsIcon;
+			break;
+		case "sport":
+			icon = sportIcon;
+			break;
+		case "tools":
+			icon = toolsIcon;
+			break;
+	};
+
+	var dataMarker = L.marker([parseFloat(data.geometry.coordinates[0]), parseFloat(data.geometry.coordinates[1])], {icon: icon});
+	console.log(dataMarker);
+	dataMarker.addTo(map);
+	dataMarker.bindPopup(
+		'<center>' +
+		data.title + '<br>'
+		+ 'Opis ' + '<br>' + data.description + '<br>'
+		+ 'Termin odbioru ' + '<br>' + data.term + '<br>'
+		+ 'Autor<br>' + data.author + '<br><a onclick="answerToTheOffer(' + "'" 
+		+ data.title.toString() + "'" + ',' + "'" + data.author.toString() + "'" 
+		+ ',' + "'" + data.description.toString() + "'" + ') ">'
+		+ "<button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
+);
+
+};
+
+
 
 
 const photosList = []
@@ -176,8 +236,20 @@ fileSelector.addEventListener('change', (event) => {
 	console.log(photosList)
 });
 
+chosenPlaceMarker = L.circle([0, 0], {
+    color: '#3a4931',
+    fillColor: '#3a4931',
+    fillOpacity: 1,
+    radius: 10
+})
+
 function onMapClick(e) {
-	document.getElementById("latlon").value = e.latlng;
+	var lat = (e.latlng.lat);
+    var lng = (e.latlng.lng);
+	var newLatLng = new L.LatLng(lat, lng);
+	document.getElementById("lat").value = lat
+	document.getElementById("lng").value = lng
+	chosenPlaceMarker.setLatLng(newLatLng).addTo(map);
 };
 
 map.on('click', onMapClick);
