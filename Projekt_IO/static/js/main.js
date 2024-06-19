@@ -56,12 +56,40 @@ function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.description);    
 };
 
-async function answerToTheOffer(Title, Author, Description) {
+var Availability = '';
+
+async function answerToTheOffer(Title, Author, Description, Availability) {
 	document.getElementById("leftsidebar").style.width = "20%";
 	document.getElementById("map").style.marginLeft= "20%";
 	document.getElementById('Title').innerText = Title;
 	document.getElementById('Author').innerText = Author;
 	document.getElementById('Description').innerText = Description;
+	
+	let AvailabilityList = document.getElementById('Availability');
+	Terms = Availability.split(",");
+	console.log(Availability);
+	while (AvailabilityList.firstChild) {
+		AvailabilityList.removeChild(AvailabilityList.firstChild);
+	};
+	console.log(Availability);
+	if (Terms.length == 1) {
+		let option = document.createElement('option');
+		option.innerText = 'Zawsze';
+		AvailabilityList.appendChild(option);
+	}
+	else if (Terms.length == 2) {
+		let option = document.createElement('option');
+		option.innerText = Terms[0];
+		AvailabilityList.appendChild(option);
+	}
+	else {
+		for (i = 0; i < Terms.length; ++i) {
+			let option = document.createElement('option');
+			option.innerText = Terms[i];
+			AvailabilityList.appendChild(option);
+		}
+	};
+	
 	console.log(Title, Author, Description)
 };
 
@@ -78,12 +106,9 @@ function getOffers(){
 		url: "/offers",
 		data: {},
 		success: function(response) {
-			console.log('Działa')
-			console.log(response.ogl_json)
 			var offers_from_database = response.ogl_json;
 			for (i in offers_from_database) {
 				offer = offers_from_database[i];
-
 				var icon;
 
 				switch(offer.category) {
@@ -125,55 +150,57 @@ function getOffers(){
 						break;
 					default:
 						icon = miscellaneousIcon;
-							break;
+						break;
 				};
-				console.log(i)
 				offer = offers_from_database[i];
 				
-				coordinates = offer.geometry.coordinates
-				lat = parseFloat(offer.geometry.coordinates[1])
-				lon = parseFloat(offer.geometry.coordinates[0])
+				coordinates = offer.geometry.coordinates;
+				lat = parseFloat(offer.geometry.coordinates[1]);
+				lon = parseFloat(offer.geometry.coordinates[0]);
 
 				
 				var offerMarker = L.marker([lat, lon], {icon: icon});
-				offerMarker.addTo(map)
+				offerMarker.addTo(map);
 				popup = '';
 				popup = '<center><h1><b>' +
 					offer.title + '</h1></b>'
-					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>'
-					
+					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>';
 				
-				console.log(offer.title)
-				
-				console.log(typeof offer.availability)
+				var availability = '';
+				var Availability = '';
 				if (offer.availability == 0) {
-					popup += '<b>Termin odbioru</b><br>' + 'Zawsze';
+					availability += '<b>Termin odbioru</b><br>' + 'Zawsze';
 				}
 				else if (typeof offer.availability == 'object') {
 					popup += '<b>Terminy odbioru</b>';
 					for (i in offer.availability) {
-						popup += '<br>' + i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
+						availability += '<br>' + i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
+						Availability += i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end + ',';
 					}
 				}
 				else if (typeof offer.availability == 'string') {
-					popup += '<b>Termin odbioru</b>' + '<br>' + offer.availability;
-				}
-
-				popup += '<br><br>' + '<b>Autor</b><br>';
+					availability += '<b>Termin odbioru</b>' + '<br>' + offer.availability;
+					Availability = offer.availability + ',';
+				};
+					console.log(Availability);
+				popup += availability + '<br><br>' + '<b>Autor</b><br>';
 				
 				if (offer.author == '0') {
-					popup += '<em>Nie znany</em>'
+					popup += '<em>Nieznany</em>';
+					autor = 'Nieznany Autor';
 				}
 				else {
-					popup += offer.author
-				}
+					popup += offer.author;
+					autor = offer.author.toString();
+				};
 				
 				popup += '<br><a onclick="answerToTheOffer(' + "'" 
 					+ offer.title.toString() + "'" + ',' + "'"
-					+ offer.author.toString() + "'" 
-					+ ',' + "'" + offer.description.toString() + "'" + ') ">'
-					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
-					
+					+ autor + "'" 
+					+ ',' + "'" + offer.description.toString() + "'" 
+					+ ',' + "'" + Availability + "'" 
+					+ ') ">'
+					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>";
 				offerMarker.bindPopup(popup);
 			}
 		}
@@ -232,7 +259,7 @@ fileSelector.addEventListener('change', (event) => {
 	console.log(photosList)
 });
 
-chosenPlaceMarker = L.circle([0, 0], {
+var chosenPlaceMarker = L.circle([0, 0], {
     color: '#3a4931',
     fillColor: '#3a4931',
     fillOpacity: 1,

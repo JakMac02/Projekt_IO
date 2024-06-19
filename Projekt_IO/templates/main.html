@@ -29,17 +29,20 @@
 		<div id="leftsidebar" class="leftsidebar" >
 			<center>
 				<h1 id = "Title"></h1>
+				
 				<b><p id = "Author"></p></b>
+				
 				<p id = "Description"></p>
-				<label for="term" id = "term"><b>Termin odbioru</b></label><br><br>
-					<label><input type="date" id="date0" name="date1"> </label><br>
-				<br>
+				
+				<b>Termin odbioru</b><br><br>
+				
+				<select id = "Availability"></select><br><br>
 					
-				<label><b>Wiadomość</b></label><br>
+				<label><b>Wiadomość</b></label><br><br>
 
 				<textarea placeholder="Dodaj wiadomość.." name="msg" required></textarea><br><br>
+				
 				<button id="buttonGet">Odbierz</button>
-					
 			</center>	
 		</div>
 		
@@ -88,8 +91,8 @@
 		
 		<button id="buttonAdd" onclick="addOffer()"> + </button>
 
-		<script src="{{ url_for('static',filename='js/map.js') }}"> </script>
-		<script src="{{ url_for('static',filename='js/offers.js') }}"> </script>
-		<script src="{{ url_for('static',filename='js/main.js') }}"> </script>
+		<script src="{{ url_for('static',filename='js/map.js') }}" defer> </script>
+		<script src="{{ url_for('static',filename='js/offers.js') }}" defer> </script>
+		<script src="{{ url_for('static',filename='js/main.js') }}" defer> </script>
 	</body>
 </html>
