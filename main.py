@@ -49,12 +49,14 @@ def login():
 def main():   
     return render_template('main.html')
 
-@app.route('/offers')
+@app.route('/offers', methods=['GET', 'POST'])
 def offers():
     collection_ogl = db['ogloszenia']
     ogl = list(collection_ogl.find())
     ogl_json = json.loads(json_util.dumps(ogl))
-    return jsonify(ogl_json)
+    
+    print(ogl_json)
+    return jsonify({"ogl_json": ogl_json})
     
 
 @app.route('/insert', methods=['POST']) 
@@ -65,11 +67,13 @@ def get_ogloszenie():
     title = data.get('title')
     description = data.get('description')
     photos = data.get('photos')
-    latlon = data.get('latlon')
+    latlon = data.get('geometry').get('coordinates')
     availability = data.get('availability')    
-    latlon = latlon.replace('LatLng(', '').replace(')', '')
-    lat = float(latlon.split(", ")[0])
-    lon = float(latlon.split(", ")[1])
+    print(latlon)
+    print(type(latlon)) 
+    print(data, author, category, title, description, photos, latlon, availability)
+    lat = float(latlon[0])
+    lon = float(latlon[1])
     
     o_dict = { "author": author,
 				"category": category,

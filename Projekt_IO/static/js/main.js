@@ -128,6 +128,90 @@ function addOffer() {
 	document.getElementById("buttonAdd").style.visibility= "hidden";
 };
 
+function getOffers(){
+	$.ajax({
+		type: "POST",
+		url: "/offers",
+		data: {},
+		success: function(response) {
+			console.log('Działa')
+			console.log(response.ogl_json)
+			var offers_from_database = response.ogl_json;
+			for (i in offers_from_database) {
+				offer = offers_from_database[i];
+				console.log(offer)
+				console.log(offer.category)
+				var icon;
+
+				switch(offer.category) {
+					case "clothes":
+						icon = clothesIcon;
+						break;
+					case "furniture":
+						icon = furnitureIcon;
+						break;
+					case "electronics":
+						icon = electronicsIcon;
+						break;
+					case "gardening":
+						icon = gardeningIcon;
+						break;
+					case "home-furnishings":
+						icon = homeFurnishingsIcon;
+						break;
+					case "kids":
+						icon = kidsIcon;
+						break;
+					case "media":
+						icon = mediaIcon;
+						break;
+					case "miscellaneous":
+						icon = miscellaneousIcon;
+						break;
+					case "pets":
+						icon = petsIcon;
+						break;
+					case "sport":
+						icon = sportIcon;
+						break;
+					case "tools":
+						icon = toolsIcon;
+						break;
+					default:
+						icon = miscellaneousIcon;
+							break;
+				};
+				console.log(i)
+				offer = offers_from_database[i];
+				
+				coordinates = offer.geometry.coordinates
+				console.log(coordinates)
+				console.log(offer.title)
+				console.log(typeof coordinates)
+				lat = parseFloat(offer.geometry.coordinates[1])
+				lon = parseFloat(offer.geometry.coordinates[0])
+				console.log(lat)
+				console.log(lon)
+				
+				var offerMarker = L.marker([lat, lon], {icon: icon});
+				offerMarker.addTo(map)
+				offerMarker.bindPopup(
+					'<center><h1><b>' +
+					offer.title + '</h1></b>'
+					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>'
+					+ '<b>Termin odbioru</b> ' + '<br>' + offer.availability + '<br><br>'
+					+ '<b>Autor</b><br>' + offer.author + '<br><a onclick="answerToTheOffer(' + "'" 
+					+ offer.title.toString() + "'" + ',' + "'" + offer.author.toString() + "'" 
+					+ ',' + "'" + offer.description.toString() + "'" + ') ">'
+					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
+				);
+			}
+		}
+	});
+};
+
+getOffers()
+
 function insertOffer(){
 	var title = document.getElementById("title").value;	
 	var type = document.getElementsByTagName('select')[0].value;
@@ -143,7 +227,7 @@ function insertOffer(){
 				'photos' : "NULL",
 				'geometry' : {
 					"coordinates": [
-						parseFloat(lat), parseFloat(lng)
+						parseFloat(lng), parseFloat(lat)
 					],
 					"type": "Point"
 				},
@@ -156,7 +240,7 @@ function insertOffer(){
 		data: JSON.stringify(data), 
 		success: function(response) { 
 			console.log('Data sent to Flask:', response);
-			addMarkerToMap(data);
+			//addMarkerToMap(data);
 		}, 
 		error: function(error) { 
 			console.log(error); 
