@@ -83,8 +83,7 @@ function getOffers(){
 			var offers_from_database = response.ogl_json;
 			for (i in offers_from_database) {
 				offer = offers_from_database[i];
-				console.log(offer)
-				console.log(offer.category)
+
 				var icon;
 
 				switch(offer.category) {
@@ -132,26 +131,50 @@ function getOffers(){
 				offer = offers_from_database[i];
 				
 				coordinates = offer.geometry.coordinates
-				console.log(coordinates)
-				console.log(offer.title)
-				console.log(typeof coordinates)
 				lat = parseFloat(offer.geometry.coordinates[1])
 				lon = parseFloat(offer.geometry.coordinates[0])
-				console.log(lat)
-				console.log(lon)
+
 				
 				var offerMarker = L.marker([lat, lon], {icon: icon});
 				offerMarker.addTo(map)
-				offerMarker.bindPopup(
-					'<center><h1><b>' +
+				popup = '';
+				popup = '<center><h1><b>' +
 					offer.title + '</h1></b>'
 					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>'
-					+ '<b>Termin odbioru</b> ' + '<br>' + offer.availability + '<br><br>'
-					+ '<b>Autor</b><br>' + offer.author + '<br><a onclick="answerToTheOffer(' + "'" 
-					+ offer.title.toString() + "'" + ',' + "'" + offer.author.toString() + "'" 
+					
+				
+				console.log(offer.title)
+				
+				console.log(typeof offer.availability)
+				if (offer.availability == 0) {
+					popup += '<b>Termin odbioru</b><br>' + 'Zawsze';
+				}
+				else if (typeof offer.availability == 'object') {
+					popup += '<b>Terminy odbioru</b>';
+					for (i in offer.availability) {
+						popup += '<br>' + i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
+					}
+				}
+				else if (typeof offer.availability == 'string') {
+					popup += '<b>Termin odbioru</b>' + '<br>' + offer.availability;
+				}
+
+				popup += '<br><br>' + '<b>Autor</b><br>';
+				
+				if (offer.author == '0') {
+					popup += '<em>Nie znany</em>'
+				}
+				else {
+					popup += offer.author
+				}
+				
+				popup += '<br><a onclick="answerToTheOffer(' + "'" 
+					+ offer.title.toString() + "'" + ',' + "'"
+					+ offer.author.toString() + "'" 
 					+ ',' + "'" + offer.description.toString() + "'" + ') ">'
 					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
-				);
+					
+				offerMarker.bindPopup(popup);
 			}
 		}
 	});
@@ -195,9 +218,6 @@ function insertOffer(){
 	});
 	location.reload();
 };
-
-
-
 
 const photosList = []
 
