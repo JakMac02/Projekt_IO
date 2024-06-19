@@ -52,62 +52,6 @@ var toolsIcon = L.icon({
 	iconSize:     [70, 70],
 });
 
-
-for (i in offers) {
-	offer = offers[i];
-	var icon;
-
-	switch(offer.properties.category) {
-		case "clothes":
-			icon = clothesIcon;
-			break;
-		case "furniture":
-			icon = furnitureIcon;
-			break;
-		case "electronics":
-			icon = electronicsIcon;
-			break;
-		case "gardening":
-			icon = gardeningIcon;
-			break;
-		case "home-furnishings":
-			icon = homeFurnishingsIcon;
-			break;
-		case "kids":
-			icon = kidsIcon;
-			break;
-		case "media":
-			icon = mediaIcon;
-			break;
-		case "miscellaneous":
-			icon = miscellaneousIcon;
-			break;
-		case "pets":
-			icon = petsIcon;
-			break;
-		case "sport":
-			icon = sportIcon;
-			break;
-		case "tools":
-			icon = toolsIcon;
-			break;
-	};
-
-	var offerMarker = L.marker([offer.geometry.coordinates[1], offer.geometry.coordinates[0]], {icon: icon});
-	console.log(offerMarker);
-	offerMarker.addTo(map)
-	offerMarker.bindPopup(
-		'<center><h1><b>' +
-		offer.properties.title + '</h1></b>'
-		+ '<b>Opis</b> ' + '<br><em>' + offer.properties.description + '</em><br><br>'
-		+ '<b>Termin odbioru</b> ' + '<br>' + offer.properties.term + '<br><br>'
-		+ '<b>Autor</b><br>' + offer.properties.author + '<br><a onclick="answerToTheOffer(' + "'" 
-		+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
-		+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
-		+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
-	);
-};
-
 function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.description);    
 };
@@ -175,6 +119,9 @@ function getOffers(){
 						icon = sportIcon;
 						break;
 					case "tools":
+						icon = toolsIcon;
+						break;
+					case "hardware":
 						icon = toolsIcon;
 						break;
 					default:
@@ -246,62 +193,7 @@ function insertOffer(){
 			console.log(error); 
 		} 
 	});
-	offers.push(data);
-	console.log(offers);
-	console.log(data);
-
-	var icon;
-
-	switch(data.category) {
-		case "clothes":
-			icon = clothesIcon;
-			break;
-		case "furniture":
-			icon = furnitureIcon;
-			break;
-		case "electronics":
-			icon = electronicsIcon;
-			break;
-		case "gardening":
-			icon = gardeningIcon;
-			break;
-		case "home-furnishings":
-			icon = homeFurnishingsIcon;
-			break;
-		case "kids":
-			icon = kidsIcon;
-			break;
-		case "media":
-			icon = mediaIcon;
-			break;
-		case "miscellaneous":
-			icon = miscellaneousIcon;
-			break;
-		case "pets":
-			icon = petsIcon;
-			break;
-		case "sport":
-			icon = sportIcon;
-			break;
-		case "tools":
-			icon = toolsIcon;
-			break;
-	};
-
-	var dataMarker = L.marker([parseFloat(data.geometry.coordinates[0]), parseFloat(data.geometry.coordinates[1])], {icon: icon});
-	console.log(dataMarker);
-	dataMarker.addTo(map);
-	dataMarker.bindPopup(
-		'<center><h1><b>' +
-		offer.properties.title + '</h1></b>'
-		+ '<b>Opis</b> ' + '<br><em>' + offer.properties.description + '</em><br><br>'
-		+ '<b>Termin odbioru</b> ' + '<br>' + offer.properties.term + '<br><br>'
-		+ '<b>Autor</b><br>' + offer.properties.author + '<br><a onclick="answerToTheOffer(' + "'" 
-		+ offer.properties.title.toString() + "'" + ',' + "'" + offer.properties.author.toString() + "'" 
-		+ ',' + "'" + offer.properties.description.toString() + "'" + ') ">'
-		+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>" 
-	);
-
+	location.reload();
 };
 
 
