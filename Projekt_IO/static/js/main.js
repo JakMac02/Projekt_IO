@@ -174,8 +174,47 @@ function getOffers(){
 				else if (typeof offer.availability == 'object') {
 					popup += '<b>Terminy odbioru</b>';
 					for (i in offer.availability) {
-						availability += '<br>' + i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
-						Availability += i + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end + ',';
+						day = '';
+						if (i == 'monday') {
+							day = 'Poniedziałek';
+						}
+						else if (i == 'tuesday') {
+							day = 'Wtorek';
+						}
+						else if (i == 'wednesday') {
+							day = 'Środa';
+						}
+						else if (i == 'thursday') {
+							day = 'Czwartek';
+						}
+						else if (i == 'friday') {
+							day = 'Piątek';
+						}
+						else if (i == 'saturday') {
+							day = 'Sobota';
+						}
+						else if (i == 'sunday') {
+							day = 'Niedziela';
+						};
+						
+						if (offer.availability[i].start != 'None' && offer.availability[i].end != 'None') {
+							if (offer.availability[i].start == offer.availability[i].end) {
+								availability += '<br>' + day + ': ' + offer.availability[i].start;
+								Availability += day + ': ' + offer.availability[i].start + ',';
+							}
+							else {
+								availability += '<br>' + day + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
+								Availability += day + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end + ',';
+							}
+						}
+						else if (offer.availability[i].start == 'None' && offer.availability[i].end != 'None') {
+							availability += '<br>' + day + ': ' + offer.availability[i].end;
+							Availability += day + ': ' + offer.availability[i].end + ',';
+						}
+						else if (offer.availability[i].start != 'None' && offer.availability[i].end == 'None') {
+							availability += '<br>' + day + ': ' + offer.availability[i].start;
+							Availability += day + ': ' + offer.availability[i].start + ',';
+						}
 					}
 				}
 				else if (typeof offer.availability == 'string') {
@@ -213,10 +252,26 @@ function insertOffer(){
 	var title = document.getElementById("title").value;	
 	var type = document.getElementById('category');
 	var category = type.options[type.selectedIndex].value;
-	var term1 = document.getElementById('date1').value;
+	//var term1 = document.getElementById('date1').value;
 	var description = document.getElementById("description").value;
 	var lat = document.getElementById("lat").value;
 	var lng = document.getElementById("lng").value;
+	
+	var monday_start = document.getElementById('start_monday').options[document.getElementById('start_monday').selectedIndex].value
+	var tuesday_start  = document.getElementById('start_tuesday').options[document.getElementById('start_tuesday').selectedIndex].value
+	var wednesday_start = document.getElementById('start_wednesday').options[document.getElementById('start_wednesday').selectedIndex].value
+	var thursday_start = document.getElementById('start_thursday').options[document.getElementById('start_thursday').selectedIndex].value
+	var friday_start = document.getElementById('start_friday').options[document.getElementById('start_friday').selectedIndex].value
+	var saturday_start = document.getElementById('start_saturday').options[document.getElementById('start_saturday').selectedIndex].value
+	var sunday_start = document.getElementById('start_sunday').options[document.getElementById('start_sunday').selectedIndex].value
+	var monday_end = document.getElementById('end_monday').options[document.getElementById('end_monday').selectedIndex].value
+	var tuesday_end = document.getElementById('end_tuesday').options[document.getElementById('end_tuesday').selectedIndex].value
+	var wednesday_end = document.getElementById('end_wednesday').options[document.getElementById('end_wednesday').selectedIndex].value
+	var thursday_end = document.getElementById('end_thursday').options[document.getElementById('end_thursday').selectedIndex].value
+	var friday_end = document.getElementById('end_friday').options[document.getElementById('end_friday').selectedIndex].value
+	var saturday_end = document.getElementById('end_saturday').options[document.getElementById('end_saturday').selectedIndex].value
+	var sunday_end = document.getElementById('end_sunday').options[document.getElementById('end_sunday').selectedIndex].value
+	
 	var data = {
 				'author': 0,
 				'category': category,
@@ -229,7 +284,37 @@ function insertOffer(){
 					],
 					"type": "Point"
 				},
-				'availability' : term1};
+				"availability": {
+					"monday": {
+					  "start": monday_start,
+					  "end": monday_end
+					},
+					"tuesday": {
+					  "start": tuesday_start,
+					  "end": tuesday_end
+					},
+					"wednesday": {
+					  "start": wednesday_start,
+					  "end": wednesday_end
+					},
+					"thursday": {
+					  "start": thursday_start,
+					  "end": thursday_end
+					},
+					"friday": {
+					  "start": friday_start,
+					  "end": friday_end
+					},
+					"saturday": {
+					  "start": saturday_start,
+					  "end": saturday_end
+					},
+					"sunday": {
+					  "start": sunday_start,
+					  "end": sunday_end
+					}
+				}
+			   };
 	$.ajax({ 
 		url: '/insert', 
 		type: 'POST',
@@ -238,7 +323,6 @@ function insertOffer(){
 		data: JSON.stringify(data), 
 		success: function(response) { 
 			console.log('Data sent to Flask:', response);
-			//addMarkerToMap(data);
 		}, 
 		error: function(error) { 
 			console.log(error); 
@@ -275,5 +359,11 @@ function onMapClick(e) {
 	document.getElementById("lng").value = lng
 	chosenPlaceMarker.setLatLng(newLatLng).addTo(map);
 };
+
+function addTerm() {
+	let TermList = document.getElementById('term');
+	let term = document.createElement('input');
+	TermList.appendChild(term);
+}
 
 map.on('click', onMapClick);

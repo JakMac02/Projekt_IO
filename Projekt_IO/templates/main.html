@@ -49,11 +49,11 @@
 		<div id="rightsidebar" class="rightsidebar" >
 			<center>
 				<h1>Dodaj ogłoszenie</h1>	
-				<label for="title"><b>Tytuł ogłoszenia</b></label><br>
+				<label for="title"><b>Tytuł ogłoszenia</b></label><br><br>
 					<input type="text" id="title" name="title">
 				<br><br>
 				
-				<label for="type" id="type"><b>Rodzaj artykułu</b></label><br>
+				<label for="type" id="type"><b>Rodzaj artykułu</b></label><br><br>
 				<select id="category">
 					<option value="clothes">Odzież</option>
 					<option value="furniture">Meble</option>
@@ -68,18 +68,215 @@
 				</select>
 				<br><br>
 				
-				<label for="term" id = "term"><b>Termin odbioru</b></label><br>
-					<label><input type="date" id="date1" name="date1"> </label><br>
-				<br>
+				<label for="term" id = "term"><b>Termin odbioru</b><br><br>
+					<small>
+					<b>Poniedziałek</b> od
+					<select id="start_monday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_monday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					</small><br>
+					<small>
+					
+					<b>Wtorek</b>  od
+					<select id="start_tuesday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_tuesday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					</small><br>
+					<small>
+					
+					<b>Środa</b>  od
+					<select id="start_wednesday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_wednesday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					
+					<b>Czwartek</b>  od
+					<select id="start_thursday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_thursday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select><br>
+					
+					<b>Piątek</b>  od
+					<select id="start_friday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_friday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select><br>
+					
+					<b>Sobota</b>  od
+					<select id="start_saturday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_saturday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select><br>
+					
+					<b>Niedziela</b>  od
+					<select id="start_sunday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					do
+					<select id="end_sunday">
+						<option value="None">Nie pasuje</option>
+						<option value="7:00">7:00</option>
+						<option value="9:00">9:00</option>
+						<option value="11:00">11:00</option>
+						<option value="13:00">13:00</option>
+						<option value="15:00">15:00</option>
+						<option value="17:00">17:00</option>
+						<option value="19:00">19:00</option>
+						<option value="21:00">21:00</option>
+						<option value="23:00">23:00</option>
+					</select>
+					<br><br>
+					</small>
+				</label>
+				<!-- <br>
+				<button id="buttonAddOption" onclick="addTerm()">+</button> <button id="buttonDelOption" onclick="delTerm()">-</button>
+				<br><br> -->
 				
-				<label for="description"><b>Opis</b></label><br>
+				<label for="description"><b>Opis</b></label><br><br>
 					<textarea placeholder="Dodaj opis.." id="description" name="description" required></textarea>
 				<br><br>
 				
 				<input type="file" id="file-selector" multiple> 
 				<br><br>
 				
-				<label for="latlon"><b>Lokalizacja</b></label><br>
+				<label for="latlon"><b>Lokalizacja</b></label><br><br>
 					<input type="text" id="lat" name="lat">
 					<input type="text" id="lng" name="lng">
 				<br><br>

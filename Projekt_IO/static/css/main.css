@@ -198,3 +198,37 @@ body {font-family: Verdana, sans-serif;}
 #buttonAdd:hover {
   background-color: #9eb691;
 }
+
+#buttonAddOption {
+	background-color: #6f8d5e;
+	color: white;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	border: 3px solid #6f8d5e;
+	border-radius: 50%;
+}
+
+#buttonAddOption:hover {
+  background-color: #9eb691;
+  border-color: #9eb691;
+}
+
+#buttonDelOption {
+	background-color: #9eb691;
+	color: white;
+	height: 30px;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 20px;
+	border: 3px solid #9eb691;
+	border-radius: 50%;
+}
+
+#buttonDelOption:hover {
+  background-color: #6f8d5e;
+  border-color: #6f8d5e;
+}
