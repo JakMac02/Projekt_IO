@@ -211,14 +211,15 @@ getOffers()
 
 function insertOffer(){
 	var title = document.getElementById("title").value;	
-	var type = document.getElementsByTagName('select')[0].value;
+	var type = document.getElementById('category');
+	var category = type.options[type.selectedIndex].value;
 	var term1 = document.getElementById('date1').value;
 	var description = document.getElementById("description").value;
 	var lat = document.getElementById("lat").value;
 	var lng = document.getElementById("lng").value;
 	var data = {
 				'author': 0,
-				'category': type,
+				'category': category,
 				'title': title,
 				'description' : description,
 				'photos' : "NULL",
