@@ -52,6 +52,8 @@ var toolsIcon = L.icon({
 	iconSize:     [70, 70],
 });
 
+var markers = L.layerGroup();
+
 function onEachFeature(feature, layer) {
     layer.bindPopup(feature.properties.description);    
 };
@@ -67,11 +69,9 @@ async function answerToTheOffer(Title, Author, Description, Availability) {
 	
 	let AvailabilityList = document.getElementById('Availability');
 	Terms = Availability.split(",");
-	console.log(Availability);
 	while (AvailabilityList.firstChild) {
 		AvailabilityList.removeChild(AvailabilityList.firstChild);
 	};
-	console.log(Availability);
 	if (Terms.length == 1) {
 		let option = document.createElement('option');
 		option.innerText = 'Zawsze';
@@ -89,8 +89,6 @@ async function answerToTheOffer(Title, Author, Description, Availability) {
 			AvailabilityList.appendChild(option);
 		}
 	};
-	
-	console.log(Title, Author, Description)
 };
 
 function addOffer() {
@@ -100,12 +98,75 @@ function addOffer() {
 	document.getElementById("buttonAdd").style.visibility= "hidden";
 };
 
-function getOffers(){
-	$.ajax({
-		type: "POST",
-		url: "/offers",
-		data: {},
-		success: function(response) {
+function getFilteredOffers() {
+	var categories = []
+	
+	var checkBoxClothes = document.getElementById("clothes");
+	if (checkBoxClothes.checked == true){
+		categories.push("clothes");
+	}
+	
+	var checkBoxFurniture = document.getElementById("furniture");
+	if (checkBoxFurniture.checked == true){
+		categories.push("furniture");
+	}
+	
+	var checkBoxElectronics = document.getElementById("electronics");
+	if (checkBoxElectronics.checked == true){
+		categories.push("electronics");
+	}
+	
+	var checkBoxHardware = document.getElementById("hardware");
+	if (checkBoxHardware.checked == true){
+		categories.push("hardware");
+	}
+	
+	var checkBoxMedia = document.getElementById("media");
+	if (checkBoxMedia.checked == true){
+		categories.push("media");
+	}
+	
+	var checkBoxCosmetics = document.getElementById("cosmetics");
+	if (checkBoxCosmetics.checked == true){
+		categories.push("cosmetics");
+	}
+	
+	var checkBoxGardening = document.getElementById("gardening");
+	if (checkBoxGardening.checked == true){
+		categories.push("gardening");
+	}
+	
+	var checkBoxPets = document.getElementById("pets");
+	if (checkBoxPets.checked == true){
+		categories.push("pets");
+	}
+	
+	var checkBoxHomeFurnishings = document.getElementById("home-furnishings");
+	if (checkBoxHomeFurnishings.checked == true){
+		categories.push("home-furnishings");
+	}
+	
+	var checkBoxSport = document.getElementById("sport");
+	if (checkBoxSport.checked == true){
+		categories.push("sport");
+	}
+	
+	var checkBoxMiscancellous = document.getElementById("miscancellous");
+	if (checkBoxMiscancellous.checked == true){
+		categories.push("miscancellous");
+	}
+	
+	
+	console.log(categories);
+	map.removeLayer(markers);
+	markers = L.layerGroup();
+	$.ajax({ 
+		url: '/filtered-offers', 
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(categories), 
+		success: function(response) { 
+			console.log(response);
 			var offers_from_database = response.ogl_json;
 			for (i in offers_from_database) {
 				offer = offers_from_database[i];
@@ -160,9 +221,8 @@ function getOffers(){
 
 				
 				var offerMarker = L.marker([lat, lon], {icon: icon});
-				offerMarker.addTo(map);
 				popup = '';
-				popup = '<center><h1><b>' +
+				popup = '<center style="font-family: Arial, Helvetica, sans-serif; color:  #3a4931;" ><h1><b>' +
 					offer.title + '</h1></b>'
 					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>';
 				
@@ -218,10 +278,9 @@ function getOffers(){
 					}
 				}
 				else if (typeof offer.availability == 'string') {
-					availability += '<b>Termin odbioru</b>' + '<br>' + offer.availability;
+					availability += '<b >Termin odbioru</b>' + '<br>' + offer.availability;
 					Availability = offer.availability + ',';
 				};
-					console.log(Availability);
 				popup += availability + '<br><br>' + '<b>Autor</b><br>';
 				
 				if (offer.author == '0') {
@@ -241,12 +300,163 @@ function getOffers(){
 					+ ') ">'
 					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>";
 				offerMarker.bindPopup(popup);
+				markers.addLayer(offerMarker);
 			}
+			markers.addTo(map);
+		}, 
+		error: function(error) { 
+			console.log(error); 
+		} 
+	});
+}
+
+
+function getOffers(){
+	$.ajax({
+		type: "POST",
+		url: "/offers",
+		data: {},
+		success: function(response) {
+			console.log(response);
+			var offers_from_database = response.ogl_json;
+			for (i in offers_from_database) {
+				offer = offers_from_database[i];
+				var icon;
+
+				switch(offer.category) {
+					case "clothes":
+						icon = clothesIcon;
+						break;
+					case "furniture":
+						icon = furnitureIcon;
+						break;
+					case "electronics":
+						icon = electronicsIcon;
+						break;
+					case "gardening":
+						icon = gardeningIcon;
+						break;
+					case "home-furnishings":
+						icon = homeFurnishingsIcon;
+						break;
+					case "kids":
+						icon = kidsIcon;
+						break;
+					case "media":
+						icon = mediaIcon;
+						break;
+					case "miscellaneous":
+						icon = miscellaneousIcon;
+						break;
+					case "pets":
+						icon = petsIcon;
+						break;
+					case "sport":
+						icon = sportIcon;
+						break;
+					case "tools":
+						icon = toolsIcon;
+						break;
+					case "hardware":
+						icon = toolsIcon;
+						break;
+					default:
+						icon = miscellaneousIcon;
+						break;
+				};
+				offer = offers_from_database[i];
+				
+				coordinates = offer.geometry.coordinates;
+				lat = parseFloat(offer.geometry.coordinates[1]);
+				lon = parseFloat(offer.geometry.coordinates[0]);
+
+				
+				var offerMarker = L.marker([lat, lon], {icon: icon});
+				popup = '';
+				popup = '<center style="font-family: Arial, Helvetica, sans-serif; color:  #3a4931;" ><h1><b>' +
+					offer.title + '</h1></b>'
+					+ '<b>Opis</b> ' + '<br><em>' + offer.description + '</em><br><br>';
+				
+				var availability = '';
+				var Availability = '';
+				if (offer.availability == 0) {
+					availability += '<b>Termin odbioru</b><br>' + 'Zawsze';
+				}
+				else if (typeof offer.availability == 'object') {
+					popup += '<b>Terminy odbioru</b>';
+					for (i in offer.availability) {
+						day = '';
+						if (i == 'monday') {
+							day = 'Poniedziałek';
+						}
+						else if (i == 'tuesday') {
+							day = 'Wtorek';
+						}
+						else if (i == 'wednesday') {
+							day = 'Środa';
+						}
+						else if (i == 'thursday') {
+							day = 'Czwartek';
+						}
+						else if (i == 'friday') {
+							day = 'Piątek';
+						}
+						else if (i == 'saturday') {
+							day = 'Sobota';
+						}
+						else if (i == 'sunday') {
+							day = 'Niedziela';
+						};
+						
+						if (offer.availability[i].start != 'None' && offer.availability[i].end != 'None') {
+							if (offer.availability[i].start == offer.availability[i].end) {
+								availability += '<br>' + day + ': ' + offer.availability[i].start;
+								Availability += day + ': ' + offer.availability[i].start + ',';
+							}
+							else {
+								availability += '<br>' + day + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end;
+								Availability += day + ': ' + offer.availability[i].start + ' - ' + offer.availability[i].end + ',';
+							}
+						}
+						else if (offer.availability[i].start == 'None' && offer.availability[i].end != 'None') {
+							availability += '<br>' + day + ': ' + offer.availability[i].end;
+							Availability += day + ': ' + offer.availability[i].end + ',';
+						}
+						else if (offer.availability[i].start != 'None' && offer.availability[i].end == 'None') {
+							availability += '<br>' + day + ': ' + offer.availability[i].start;
+							Availability += day + ': ' + offer.availability[i].start + ',';
+						}
+					}
+				}
+				else if (typeof offer.availability == 'string') {
+					availability += '<b >Termin odbioru</b>' + '<br>' + offer.availability;
+					Availability = offer.availability + ',';
+				};
+				popup += availability + '<br><br>' + '<b>Autor</b><br>';
+				
+				if (offer.author == '0') {
+					popup += '<em>Nieznany</em>';
+					autor = 'Nieznany Autor';
+				}
+				else {
+					popup += offer.author;
+					autor = offer.author.toString();
+				};
+				
+				popup += '<br><a onclick="answerToTheOffer(' + "'" 
+					+ offer.title.toString() + "'" + ',' + "'"
+					+ autor + "'" 
+					+ ',' + "'" + offer.description.toString() + "'" 
+					+ ',' + "'" + Availability + "'" 
+					+ ') ">'
+					+ "<br><button class=\"button\" id=\"buttonGet\">Odbierz</button> </a></center>";
+				offerMarker.bindPopup(popup);
+				markers.addLayer(offerMarker);
+			}
+			markers.addTo(map);
 		}
 	});
 };
-
-getOffers()
 
 function insertOffer(){
 	var title = document.getElementById("title").value;	
@@ -337,11 +547,9 @@ const fileSelector = document.getElementById('file-selector');
 fileSelector.addEventListener('change', (event) => {
 	const photosList = []
 	const fileList = event.target.files;
-	console.log(fileList)
 	for (i = 0; i < fileList.length; i++) {
 		photosList.push(fileList[i].name)
-	}
-	console.log(photosList)
+	};
 });
 
 var chosenPlaceMarker = L.circle([0, 0], {
@@ -364,6 +572,17 @@ function addTerm() {
 	let TermList = document.getElementById('term');
 	let term = document.createElement('input');
 	TermList.appendChild(term);
-}
+};
 
+function openForm() {
+	document.getElementById("form-popup").style.visibility = "visible";
+	document.getElementById("open-filters-button").style.visibility= "hidden";
+};
+
+function closeFilters() {
+	document.getElementById("form-popup").style.visibility = "hidden";
+	document.getElementById("open-filters-button").style.visibility= "visible";
+};
+
+getOffers();
 map.on('click', onMapClick);

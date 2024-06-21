@@ -64,6 +64,7 @@
 					<option value="gardening">Ogród</option>
 					<option value="pets">Artykuły dla zwierząt</option>
 					<option value="home-furnishings">Wyposażenie domu</option>
+					<option value="sport">Sport</option>
 					<option value="miscancellous">inne</option>
 				</select>
 				<br><br>
@@ -153,7 +154,7 @@
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
 						<option value="23:00">23:00</option>
-					</select>
+					</select><br>
 					
 					<b>Czwartek</b>  od
 					<select id="start_thursday">
@@ -288,9 +289,55 @@
 		<div id="map"></div>
 		
 		<button id="buttonAdd" onclick="addOffer()"> + </button>
-
+				
 		<script src="{{ url_for('static',filename='js/map.js') }}" defer> </script>
-		<script src="{{ url_for('static',filename='js/offers.js') }}" defer> </script>
+		
+		<button id="open-filters-button" onclick="openForm()">Filtruj</button>
+		
+		<div class="form-popup" id="form-popup">
+				<center style = "color: #3a4931;">
+					<b><h1 style>Filtruj</h1>
+					Kategoria<br><br></b>
+					
+					<input type="checkbox" id="clothes" name="clothes" value="clothes">
+					<label for="clothes"> Odzież</label><br>
+					
+					<input type="checkbox" id="furniture" name="furniture" value="furniture">
+					<label for="furniture"> Meble</label><br>
+					
+					<input type="checkbox" id="electronics" name="electronics" value="electronics">
+					<label for="electronics"> Elektronika</label><br>
+					
+					<input type="checkbox" id="hardware" name="hardware" value="hardware">
+					<label for="hardware"> Narzędzia</label><br>
+					
+					<input type="checkbox" id="media" name="media" value="media">
+					<label for="media"> Książki, płyty i kasety</label><br>
+					
+					<input type="checkbox" id="cosmetics" name="cosmetics" value="cosmetics">
+					<label for="cosmetics"> Kosmetyki</label><br>
+					<input type="checkbox" id="gardening" name="gardening" value="gardening">
+					<label for="gardening"> Ogród</label><br>
+					
+					<input type="checkbox" id="pets" name="pets" value="pets">
+					<label for="pets"> Artykuły dla zwierząt</label><br>
+					
+					<input type="checkbox" id="home-furnishings" name="home-furnishings" value="home-furnishings">
+					<label for="home-furnishings"> Wyposażenie domu</label><br>
+					
+					<input type="checkbox" id="sport" name="sport" value="sport">
+					<label for="sport"> Sport</label><br>
+					
+					<input type="checkbox" id="miscancellous" name="miscancellous" value="miscancellous">
+					<label for="miscancellous"> inne</label><br><br>
+					
+					
+					<button id="buttonFilter" onclick="getFilteredOffers()">Filtruj</button><br><br>
+					
+					<button id="buttonClose" onclick="closeFilters()">Zamknij</button><br><br>
+				</center>
+		</div>
+		
 		<script src="{{ url_for('static',filename='js/main.js') }}" defer> </script>
 	</body>
 </html>

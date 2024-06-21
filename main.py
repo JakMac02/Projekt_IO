@@ -58,6 +58,25 @@ def offers():
     print(ogl_json)
     return jsonify({"ogl_json": ogl_json})
     
+@app.route('/filtered-offers', methods=['GET', 'POST'])
+def filtered_offers():
+    data = request.get_json()
+    #print(data)
+    collection_ogl = db['ogloszenia']
+    ogl = []
+    print(len(data))
+    if len(data) != 0:
+        for i in data:
+            for x in collection_ogl.find({'category': i}, {}):
+                ogl.append(x)
+    else:
+        for x in collection_ogl.find({}, {}):
+                ogl.append(x)
+    #print(ogl)
+    
+    ogl_json = json.loads(json_util.dumps(ogl))
+
+    return jsonify({"ogl_json": ogl_json})
 
 @app.route('/insert', methods=['POST']) 
 def get_ogloszenie():

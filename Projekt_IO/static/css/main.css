@@ -8,7 +8,7 @@ html, body {
 .leftsidebar {
   margin: 0;
   padding: 0px;
-  background-color: #f2f5f0;
+  background-color: #e4ebe0;
   position: fixed;
   height: 100%;
   overflow-x: hidden;
@@ -20,7 +20,7 @@ html, body {
 .rightsidebar {
   right: 0px;
   padding: 0px;
-  background-color: #f2f5f0;
+  background-color: #e4ebe0;
   position: right;
   height: 100%;
   overflow-x: hidden;
@@ -37,6 +37,11 @@ html, body {
   transition: 0.5s;
 }
 
+body {
+  color:  #3a4931;
+  font-family: Arial;
+}
+
 #buttonGet {
   background-color: #6f8d5e; /* Green */
   border: none;
@@ -48,6 +53,7 @@ html, body {
   font-size: 16px;
   transition-duration: 0.4s;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 #buttonGet:hover {
@@ -64,92 +70,7 @@ p {
 }
 
 ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
-
-/* Month header */
-.month {
-  padding: 5px 5px;
-  width: 100%;
-  background: #6f8d5e;
-  text-align: center;
-}
-
-/* Month list */
-.month ul {
-  margin: 0;
-  padding: 0;
-}
-
-.month ul li {
-  color: white;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-
-/* Weekdays (Mon-Sun) */
-.weekdays {
-  margin: 0;
-  padding: 5px 0;
-  background-color:#ddd;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 10%;
-  color: #666;
-  text-align: center;
-}
-
-.weekdays li2 {
-  display: inline-block;
-  width: 10%;
-  color: #666;
-  text-align: center;
-}
-
-/* Days (1-31) */
-.days {
-  padding: 5px 0;
-  background: #eee;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 10%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-/* Highlight the "current" day */
-.days li .active {
-  padding: 5px;
-  background: #6f8d5e;
-  color: white !important
-}
-
-.days li2 {
-  list-style-type: none;
-  display: inline-block;
-  width: 10%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-/* Highlight the "current" day */
-.days li2 .active {
-  padding: 5px;
-  background: #6f8d5e;
-  color: white !important
-}
-
+body {font-family: Arial, sans-serif;}
 
 /* Full-width textarea */
 .textarea {
@@ -161,7 +82,6 @@ body {font-family: Verdana, sans-serif;}
   resize: none;
   min-height: 200px;
 }
-
 
 /* Set a style for the submit/login button */
 #btn {
@@ -193,10 +113,47 @@ body {font-family: Verdana, sans-serif;}
 	font-size: 40px;
 
 	border-radius: 50%;
+
 }
 
 #buttonAdd:hover {
   background-color: #9eb691;
+}
+
+#buttonFilter {
+  background-color: #6f8d5e;
+  border: none;
+  color: white;
+  padding: 10px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#buttonFilter:hover {
+  background-color: #9eb691;
+  color: white;
+}
+
+#buttonClose {
+  background-color: #6f8d5e;
+  border: none;
+  color: white;
+  padding: 10px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#buttonClose:hover {
+  background-color: #9eb691;
+  color: white;
 }
 
 #buttonAddOption {
@@ -232,3 +189,41 @@ body {font-family: Verdana, sans-serif;}
   background-color: #6f8d5e;
   border-color: #6f8d5e;
 }
+
+#open-filters-button {
+  background-color: #6f8d5e;
+  margin-left: 30%;
+  color: #f2f5f0;
+  z-index: 400;
+  padding: 16px 20px;
+  border: none;
+  bottom: 30px;
+  opacity: 0.9;
+  position: absolute;
+  width: 40%;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+#open-filters-button:hover {
+  background-color: #9eb691;
+}
+
+.form-popup {
+  visibility: hidden;
+  position: fixed;
+  bottom: 30px;
+  margin-left: 30%;
+  background-color: #cfdac8;   
+  border: 10px #cfdac8;
+  z-index: 400;
+  width: 40%;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+
+input[type="checkbox"] {
+  accent-color: #506543;
+}
+
+
