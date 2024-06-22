@@ -92,7 +92,6 @@ async function answerToTheOffer(Title, Author, Description, Availability) {
 };
 
 function addOffer() {
-    console.log("Dodaj Ogłoszenie!");
 	document.getElementById("rightsidebar").style.width = "20%";
 	document.getElementById("map").style.marginRight= "20%";
 	document.getElementById("buttonAdd").style.visibility= "hidden";
@@ -156,8 +155,6 @@ function getFilteredOffers() {
 		categories.push("miscancellous");
 	}
 	
-	
-	console.log(categories);
 	map.removeLayer(markers);
 	markers = L.layerGroup();
 	$.ajax({ 
@@ -166,7 +163,6 @@ function getFilteredOffers() {
 		contentType: 'application/json',
 		data: JSON.stringify(categories), 
 		success: function(response) { 
-			console.log(response);
 			var offers_from_database = response.ogl_json;
 			for (i in offers_from_database) {
 				offer = offers_from_database[i];
@@ -317,7 +313,6 @@ function getOffers(){
 		url: "/offers",
 		data: {},
 		success: function(response) {
-			console.log(response);
 			var offers_from_database = response.ogl_json;
 			for (i in offers_from_database) {
 				offer = offers_from_database[i];
@@ -532,7 +527,7 @@ function insertOffer(){
 		
 		data: JSON.stringify(data), 
 		success: function(response) { 
-			console.log('Data sent to Flask:', response);
+			//console.log('Data sent to Flask:', response);
 		}, 
 		error: function(error) { 
 			console.log(error); 
