@@ -15,6 +15,14 @@
 		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 			integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
 			crossorigin=""></script>
+			
+		<style>
+			.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+			  background-color: #cfdac8;
+			  opacity: 0.9;
+			  box-shadow: none;
+			}
+		</style>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 	
 		<script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
@@ -74,27 +82,43 @@
 					<b>Poniedziałek</b> od
 					<select id="start_monday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_monday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					</small><br>
@@ -103,27 +127,43 @@
 					<b>Wtorek</b>  od
 					<select id="start_tuesday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_tuesday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					</small><br>
@@ -132,135 +172,215 @@
 					<b>Środa</b>  od
 					<select id="start_wednesday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_wednesday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select><br>
 					
 					<b>Czwartek</b>  od
 					<select id="start_thursday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_thursday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select><br>
 					
 					<b>Piątek</b>  od
 					<select id="start_friday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_friday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select><br>
 					
 					<b>Sobota</b>  od
 					<select id="start_saturday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_saturday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select><br>
 					
 					<b>Niedziela</b>  od
 					<select id="start_sunday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					do
 					<select id="end_sunday">
 						<option value="None">Nie pasuje</option>
+						<option value="6:00">6:00</option>
 						<option value="7:00">7:00</option>
+						<option value="8:00">8:00</option>
 						<option value="9:00">9:00</option>
+						<option value="10:00">10:00</option>
 						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
 						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
 						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
 						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
 						<option value="19:00">19:00</option>
 						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
 						<option value="23:00">23:00</option>
 					</select>
 					<br><br>

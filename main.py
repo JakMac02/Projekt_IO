@@ -88,9 +88,7 @@ def get_ogloszenie():
     photos = data.get('photos')
     latlon = data.get('geometry').get('coordinates')
     availability = data.get('availability')    
-    print(latlon)
-    print(type(latlon)) 
-    print(data, author, category, title, description, photos, latlon, availability)
+    
     lat = float(latlon[0])
     lon = float(latlon[1])
     
@@ -115,33 +113,6 @@ def get_ogloszenie():
     collection_uz = db['uzytkownicy']
     fs = gridfs.GridFS(db)
 
-    # Czytanie pliku GeoJSON
-
-    # Czytanie ścieżek do zdjęć zawartych w pliku GeoJSON w parametre "photos"
-    #photo_paths = o.get("photos", [])
-
-    # Dodanie zdjęć do bazy danch i odczyanie ich ID
-    """photo_ids = []
-    for photo_path in photo_paths:
-        with open(photo_path, 'rb') as photo_file:
-            photo_id = fs.put(photo_file, filename=photo_path)
-            photo_ids.append(str(photo_id))"""
-
-    # Zamiana w parametrze "photos" ścieżek użytkownika na ID zdjęć w bazie danych
-    #o["photos"] = photo_ids
-
-    # Odczytanie autora ogłoszenia
-    """author = o.get("author")
-    if not author:
-        print("Brak informacji o autorze ogłoszenia w GeoJSONie")
-        return"""
-
-    # Odnalezienie użytkownika (autora ogłosznia) w kolekcji użytkowników
-    """uz_doc = collection_uz.find_one({"nickname": author})
-    if not uz_doc:
-        print(f"Nie znaleziono użytkownika o nicku: {author}")
-        return"""
-
     # Dodanie posta do parametru "posts" w dokumencie użykownika
     collection_uz.update_one({"nickname": "NULL"},
                              {"$push": {"posts": o}})
@@ -149,7 +120,7 @@ def get_ogloszenie():
     # Dodanie dokumentu do kolekcji ogłoszeń
     collection_ogl.insert_one(o)
     print("Dodano ogłoszenie do bazy danych (kolekcja ogloszenia)")
-    return "dziala zaejebiscie"
+    return "dziala dobrze"
 
 # def insert_uzytkownik(uzytkownik):
 #     collection = db['uzytkownicy']
@@ -290,6 +261,34 @@ oglo1 = """{ "author": 0,
 #get_ogloszenie(oglo1)
 # insert_many_uzytkownicy("uzytkownicy.json")
 # insert_many_ogloszenia("ogloszenia.json"))
+
+# Czytanie pliku GeoJSON
+
+#Powinno być w insert
+# Czytanie ścieżek do zdjęć zawartych w pliku GeoJSON w parametre "photos"
+#photo_paths = o.get("photos", [])
+
+# Dodanie zdjęć do bazy danch i odczyanie ich ID
+"""photo_ids = []
+for photo_path in photo_paths:
+    with open(photo_path, 'rb') as photo_file:
+        photo_id = fs.put(photo_file, filename=photo_path)
+        photo_ids.append(str(photo_id))"""
+
+# Zamiana w parametrze "photos" ścieżek użytkownika na ID zdjęć w bazie danych
+#o["photos"] = photo_ids
+
+# Odczytanie autora ogłoszenia
+"""author = o.get("author")
+if not author:
+    print("Brak informacji o autorze ogłoszenia w GeoJSONie")
+    return"""
+
+# Odnalezienie użytkownika (autora ogłosznia) w kolekcji użytkowników
+"""uz_doc = collection_uz.find_one({"nickname": author})
+if not uz_doc:
+    print(f"Nie znaleziono użytkownika o nicku: {author}")
+    return"""
 
 if __name__ == "__main__":
     app.run(debug=True)
